@@ -1,0 +1,65 @@
+html {
+    margin: 0;
+    font-size: 40px;
+}
+
+
+
+.container {
+    padding: 20px;
+    margin: 10px;
+    background-color: #e9e4e4;
+    border-left: 5px solid #686666;
+}
+
+button {
+    margin: 20px 0px;
+}
+
+h1 {
+    margin: 0;
+    font-family: "bold italic", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 0.7rem;
+}
+
+a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+
+
+
+
+/*
+@media (max-width:500px) {
+
+    body {
+        background-image: url(img/EduLink-Logo.png);
+    }
+}
+
+@media (min-width:501px){
+    body{
+        background-image: url(img/FotoYo.jpeg);
+    }
+}
+
+*/
+
+@font-face {
+    font-family: Korzu;
+    src: url(fonts/Montserrat-Black.ttf) format("truetype");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: Korzu;
+    src: url(fonts/Montserrat-ExtraBoldItalic.ttf) format("truetype");
+    font-weight: 400;
+}

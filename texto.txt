@@ -1,0 +1,46 @@
+
+Framework / Libreria
+Framework son herramientas que solucionan muchos problemas 
+Libreria es una herramienta que soluciona un problema especifico
+
+Install Node.js(is usefull to create bundles)
+
+al final del body se pone script src main.js
+
+< ----- Variables ----- >
+
+
+Para definir una variable lo ideal es separar cada palabra de la var con un _
+
+let variable = "texto"/num;
+
+console.log(variable);
+
+< ---- Variables ---- >
+const: variable que en un futuro si se cambia, tira error
+let: variable que en un futuro se puede cambiar
+typeof: pregunta el tipo de var (string, int, boolean, null)
+
+
+< ---- Arrays ---->
+en el typeof vale como objeto
+let animales = ["perro", "gato"];
+
+< --- Declaration --- >
+se usa cuando vas a crear algo que vas a usar en un futuro
+-let
+-const
+-function
+-class
+-export / import
+
+< --- Statements --- >
+-if
+-for
+-switch
+
+< --- Expressions --- >
+
+4 + 6
+2*2
+mifuncion()
