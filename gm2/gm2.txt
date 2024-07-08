@@ -1,0 +1,11 @@
+<script> JS Codigo</script>
+<script src='archivo.js'></script>
+
+ubicacion del script en el html
+si lo ponemos en el head, lo primero que va a cargar va a ser javascript, y despues el maquetado.
+si lo ponemos arriba del body se va a cargar al mismo tiempo que carga el maquetado
+si lo ponemos despues del body, se va a cargar despues del maquetado
+
+debugger;
+se utiliza para encontrar fallos en la consola de javascript
+

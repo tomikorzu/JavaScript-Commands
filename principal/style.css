@@ -52,14 +52,12 @@ a {
 
 */
 
-@font-face {
-    font-family: Korzu;
-    src: url(fonts/Montserrat-Black.ttf) format("truetype");
-    font-weight: 800;
+input{
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    border: 1px solid #d5d1d1;
 }
-
-@font-face {
-    font-family: Korzu;
-    src: url(fonts/Montserrat-ExtraBoldItalic.ttf) format("truetype");
-    font-weight: 400;
+input:hover{
+    background-color: #f5f5f5;
 }
