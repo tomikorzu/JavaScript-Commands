@@ -17,6 +17,31 @@ else{
     console.error('es menor de edad');
 }
 
+//devolucion del tipo de variables
+//string, int, boolean, undefined, number
+console.log(typeof edad)
+console.log(typeof nombre)
+var x= 1000
+x = {key: 'valor'}// objeto
+console.log(x)
+function revision(x){
+    if (typeof(x) == 'string') {
+        alert('x is string')
+    }
+    else if(typeof(x) == 'number') {
+        alert('x is a number')
+    }
+    else if(typeof(x) =='object'){
+        alert('x is an object')
+    }
+    else if(typeof(x) =='undefined'){
+        alert('x is undefined')
+    }
+}
+revision(x)
 
+/*
+    Comentario
+*/
 
 
