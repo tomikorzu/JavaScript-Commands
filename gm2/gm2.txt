@@ -57,3 +57,32 @@ Primitivos
 [string, numbre, boolean, int, undefined]
 
 typeof
+
+
+tipo de variables
+
+var: no se usa
+
+var nombre = 'javier';
+nombre = 'santhiago';
+
+var nombre = 'santhiago';
+
+let: para reasignar y redeclarar variables
+
+let nombre = 'javier';
+
+nombre = 'santhiago';
+
+// no se puede poner let 2 veces en la misma variables
+
+funciones
+
+let funcion = () => {    //es un bloque
+    let number = 1;
+    if (true) {
+        let number = 2;
+        console.log(number)
+    }   // es otro bloque
+    console.log(number)
+}
