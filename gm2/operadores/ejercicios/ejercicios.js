@@ -74,16 +74,33 @@ askBtn.onclick = function(){
 
 //ejercicios documento
 myName = 'Tomas' 
+// 1
 let lastName  = 'Korzusehec'
+// 2
 let myAge = 18
-let masculino = true
-let firstPhrase = 'hello'
-let secondPhrase = 'bootcamp'
+// 3
+const masculino = true
+// 4
+const firstPhrase = 'hello'
+const secondPhrase = 'bootcamp'
 const firstAndSecondPhrase = firstPhrase + ' ' + secondPhrase
-let firstNumber = 10
-let secondNumber = 20
-let sumaNumbers = firstNumber + secondNumber
-let restaNumbers = firstNumber - secondNumber
-
+// 5
+const firstNumber = 10
+const secondNumber = 20
+const sumaNumbers = firstNumber + secondNumber
+const restaNumbers = firstNumber - secondNumber
+const multiplicacionNumbers = firstNumber * secondNumber
+const divisionNumbers = firstNumber / secondNumber
+const moduloNumbers = firstNumber % secondNumber
+// console.log(sumaNumbers)
+// console.log(restaNumbers)
+// console.log(multiplicacionNumbers)
+// console.log(divisionNumbers)
+// console.log(moduloNumbers)
+//6
+let efectivoPhrase = 'Hola tengo en efectivo ' 
+let efectivoNumber = 50000
+let efectivo = efectivoPhrase + ' ' + efectivoNumber
+console.log(efectivo)
+ // 7
  
-
