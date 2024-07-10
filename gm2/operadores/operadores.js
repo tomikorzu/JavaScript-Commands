@@ -146,3 +146,9 @@ for (a5 = 0; a5 <= 10; a5++){
     console.log(a5)
 }
 
+//boolean
+let num1 = 1
+let num2 = 2
+afirmacion1 = num1 > num2
+afirmacion2 = num1 < num2
+console.log(afirmacion2)

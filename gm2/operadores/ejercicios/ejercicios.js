@@ -104,3 +104,4 @@ let efectivo = efectivoPhrase + ' ' + efectivoNumber
 console.log(efectivo)
  // 7
  
+document.write('hola')
