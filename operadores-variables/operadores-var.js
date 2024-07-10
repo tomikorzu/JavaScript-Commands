@@ -98,3 +98,7 @@ async function ejecutarOperacion() {
 }
 
 ejecutarOperacion();
+
+//arrays
+let frutas = ['banana', 'manzana', 'mandarina']
+console.log(frutas[2])
