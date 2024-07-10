@@ -33,14 +33,23 @@ operacion.suma = operacion.a +operacion.b
 console.log('El resultado de la operacion aritmetica es ' + operacion.suma)
 
 //Ejercicio 4
-let number = 5
-if (number == 5){
-    console.log(Boolean(number))
-}
-if (number === 6){
-    console.log(Boolean(number))
-
-}
+console.log('ejercicio 4')
+console.log(5 == 5); // true 
+console.log(5 == '5'); // true 
+console.log(5 === 5); // true
+console.log(5 === '5'); // false 
+console.log(5 != '5'); // false 
+console.log(5 != 5); // false 
+console.log(5 !== '5'); // true 
+console.log(5 !== 5); // false 
+console.log(10 > 5); // true
+console.log(5 > 10); // false
+console.log(5 < 10); // true
+console.log(10 < 5); // false
+console.log(10 >= 10); // true
+console.log(5 >= 10); // false
+console.log(5 <= 10); // true
+console.log(10 <= 5); // false
 
 //Ejercicios MDN
 //ejercicio 1 boton
@@ -73,18 +82,23 @@ askBtn.onclick = function(){
 }
 
 //ejercicios documento
-myName = 'Tomas' 
+console.log('ejercicios Documento')
+console.log('ejercicio 1')
 // 1
 let lastName  = 'Korzusehec'
 // 2
+console.log('ejercicio 2')
 let myAge = 18
 // 3
+console.log('ejercicio 3')
 const masculino = true
 // 4
+console.log('ejercicio 4')
 const firstPhrase = 'hello'
 const secondPhrase = 'bootcamp'
 const firstAndSecondPhrase = firstPhrase + ' ' + secondPhrase
 // 5
+console.log('ejercicio 5')
 const firstNumber = 10
 const secondNumber = 20
 const sumaNumbers = firstNumber + secondNumber
@@ -98,11 +112,13 @@ const moduloNumbers = firstNumber % secondNumber
 // console.log(divisionNumbers)
 // console.log(moduloNumbers)
 //6
+console.log('ejercicio 6')
 let efectivoPhrase = 'Hola tengo en efectivo ' 
 let efectivoNumber = 50000
 let efectivo = efectivoPhrase + ' ' + efectivoNumber
 console.log(efectivo)
  // 7
+ console.log('ejercicio 7')
  let esHombre = true
  let esMujer = !esHombre
  console.log('Hombre o Mujer')
@@ -221,6 +237,7 @@ else{
 */
 //16
 console.log('Ejercicio 16')
+/*
 //triangulo
 let baseTriangulo = prompt('Ingrese la base del triangulo')
 let heightTriangulo = prompt('ingrese la altura del triangulo')
@@ -243,3 +260,5 @@ console.log('El area del cuadrado es: ' + areaCuadrado)
 
 console.log('el radio del circulo es: ' + radioCirculo)
 console.log('El area del circulo es: ' + areaCirculo)
+
+*/
