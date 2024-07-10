@@ -60,3 +60,41 @@ let persona = {
     ciudad: "CABA"
 };
 console.log(persona.nombre + " tiene " + persona.edad + " años y vive en " + persona.ciudad);
+
+//Metodos de Array
+
+let numeros = [1, 2, 3, 4, 5]
+let cuadrados = numeros.map(num => num * num)
+let pares = numeros.filter(num => num % 2 === 0)
+let sumaTotal = numeros.reduce((acumulador, num) => acumulador + num, 0)
+console.log('cuadrados: ' + cuadrados)
+console.log('pares: ' + pares)
+console.log('suma total: ' + sumaTotal)
+
+//Cambiar texto al clickear
+document.getElementById('originalText').addEventListener('click', function(){
+    document.getElementById('originalText').innerHTML = 'Texto cambiado'
+})
+
+//Eventos con clicks
+document.getElementById('showText').addEventListener('click', function() {
+    let texto = document.getElementById('inputText').value
+    alert(texto)
+})
+
+//Async - await
+function operacionAsincrona() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Operación completada");
+        }, 5000);
+    });
+}
+
+async function ejecutarOperacion() {
+    console.log("Iniciando operación...");
+    let resultado = await operacionAsincrona();
+    console.log(resultado);
+}
+
+ejecutarOperacion();
