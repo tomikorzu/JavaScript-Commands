@@ -1,0 +1,36 @@
+1- ¿Qué es una variable en JavaScript?
+2- ¿Qué diferencia hay entre var, let y const?
+3- ¿Cuál es el ámbito de una variable declarada con var?
+4- ¿Cuál es el ámbito de una variable declarada con let?
+5- ¿Cuál es el ámbito de una variable declarada con const?
+6- ¿Qué sucede si intentas redeclarar una variable con var en el mismo ámbito?
+7- ¿Qué sucede si intentas redeclarar una variable con let en el mismo ámbito?
+8- ¿Qué sucede si intentas cambiar el valor de una constante declarada con const?
+9- ¿Es posible declarar una variable sin inicializarla? Si es así, ¿qué valor tiene por defecto?
+10- ¿Qué tipo de error se genera al intentar usar una variable no declarada?
+11- ¿Qué diferencia hay entre declarar una variable e inicializarla?
+12- ¿Qué es el hoisting en JavaScript?
+13- ¿Cómo afecta el hoisting a las variables declaradas con var?
+14- ¿Qué sucede si intentas acceder a una variable antes de declararla con let o const?
+15- ¿Qué es una variable global?
+16- ¿Es posible cambiar el tipo de datos de una variable en JavaScript? Da un ejemplo.
+17- ¿Cómo se puede verificar el tipo de una variable en JavaScript?
+
+1- una variable es algo a lo que se le puede declarar y asignar valores
+
+2-var es hoisting, es decir que se puede declarar hasta en el mismo bloque todas las veces que se quiera, let se puede declarar mas de una vez, pero no en el mismo bloque. en el caso que por ejemplo:
+let variable = 0;
+if (variable = 0){
+    let variable = 2;
+} 
+// Esto es correcto
+let variable1 = 0
+let variable2 = 'hola'
+if (variable2 = 'hola){
+    let variable2 = 'Chau'
+}
+let variable1 = 2;
+//en este caso, el error esta en la variable1 ya que esta en el mismo bloque que la primera
+por otro lado, const solo se puede declarar y asignar el valor una sola vez, puede ser por ejemplo en los DNI
+
+4-Las variables let se pueden acceder solo entre llaves, es decir, si hago un for y un let variable, afuera del for, no puedo hacer un console.log(variabe)
