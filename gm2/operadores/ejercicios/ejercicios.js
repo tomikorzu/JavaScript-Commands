@@ -85,19 +85,30 @@ askBtn.onclick = function(){
 console.log('ejercicios Documento')
 console.log('ejercicio 1')
 // 1
+//Declarar una variable de tipo string cuyo nombre represente de forma clara su contenido.
 let lastName  = 'Korzusehec'
 // 2
+//Declarar una variable de tipo number cuyo nombre represente de forma clara su contenido.
 console.log('ejercicio 2')
 let myAge = 18
 // 3
+//Declarar una variable de tipo boolean cuyo nombre represente de forma clara su contenido.
 console.log('ejercicio 3')
 const masculino = true
 // 4
+//Declarar dos variables de tipo string. Luego declarar una nueva variable cuyo valor sea la concatenación de las dos variables previamente creadas. 
 console.log('ejercicio 4')
 const firstPhrase = 'hello'
 const secondPhrase = 'bootcamp'
 const firstAndSecondPhrase = firstPhrase + ' ' + secondPhrase
 // 5
+//Declarar dos variables de tipo number.
+//Luego declarar una nueva variable cuyo valor sea la suma de las dos variables previamente creadas. 
+// Luego declarar una nueva variable cuyo valor sea la resta de las dos variables previamente creadas. 
+// Luego declarar una nueva variable cuyo valor sea la multiplicación de las dos variables previamente creadas. 
+// Luego declarar una nueva variable cuyo valor sea la división de las dos variables previamente creadas. 
+// Luego declarar una nueva variable cuyo valor sea el módulo entre las dos variables previamente creadas. 
+ 
 console.log('ejercicio 5')
 const firstNumber = 10
 const secondNumber = 20
@@ -112,12 +123,14 @@ const moduloNumbers = firstNumber % secondNumber
 // console.log(divisionNumbers)
 // console.log(moduloNumbers)
 //6
+//Declarar una variable de tipo number y otra de tipo string. Luego sumar ambas variables y guardar su resultado en una nueva variable. De qué tipo será la tercera variable?
 console.log('ejercicio 6')
 let efectivoPhrase = 'Hola tengo en efectivo ' 
 let efectivoNumber = 50000
 let efectivo = efectivoPhrase + ' ' + efectivoNumber
 console.log(efectivo)
  // 7
+ //Declarar una variable de tipo booleano cuyo nombre represente su valor. Luego declarar una nueva variable cuyo valor sea opuesto a la variable previamente creada.
  console.log('ejercicio 7')
  let esHombre = true
  let esMujer = !esHombre
@@ -125,6 +138,11 @@ console.log(efectivo)
  console.log('hombre? ', esHombre)
  console.log('mujer? ', esMujer)
 //8
+//Crear una variable de tipo number. 
+// Reasignar un nuevo valor a esa misma variable para que sea su valor + 1. 
+// Repetir la operación anterior utilizando una estrategia diferente
+// Repetir ambas operaciones con operadores de resta, multiplicación y división.
+
 console.log('Ejercicio 8')
 console.log('suma')
 let num = 10;
@@ -147,6 +165,7 @@ num =num/2;
 num /= 2
 console.log(num)
 //9
+//Declarar una constante e intentar reasignarle otro valor luego de su declaración. Que output recibis?
 console.log('Ejercicio 9')
 const messiBalones = 8;
 // if (messiBalones = 8){
@@ -156,6 +175,10 @@ const messiBalones = 8;
 console.error('El mensaje que aparece es: TypeError: Assignment to constant variable')
 console.log('hola')
 //10
+//Crear dos variables de tipo string y dos variables de tipo number. 
+// Crear una nueva variable cuyo valor sea un string que incluya las cuatro variables previamente creadas. 
+// Repetir el punto anterior utilizando una estrategia diferente.
+
 console.log('ejercicio 10')
 let varString1 = ''
 let varString2 = ''
@@ -223,6 +246,7 @@ descuento = 35/100
 let totalPagado = producto * descuento
 console.log(totalPagado) 
 //15
+//Crea un bloque de código que, tomando el año de nacimiento de una persona, devuelva su edad actual.
 console.log('Ejercicio 15')
 /*
 year = prompt('ingrese el AÑO en el que nacio: ')
@@ -236,6 +260,7 @@ else{
 }
 */
 //16
+//Crea un bloque de código que, definiendo las variables necesarias, calcule el área de un círculo, un cuadrado y un triángulo.
 console.log('Ejercicio 16')
 /*
 //triangulo
