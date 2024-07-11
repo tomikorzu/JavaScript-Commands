@@ -19,3 +19,21 @@ document.write('<br>' + ' Es ' + resultado.includes('segunda cadena y esta ultim
 //indexOf posicion donde comienza el texto
 document.write('<br>' + 'indexOf')
 document.write('<br>' + ' Es ' + resultado.indexOf('da'))
+
+//lastindexof muestra la posicion de la ultima palabra o letra que se selecciona
+document.write('<br>' + 'lastIndexOf')
+document.write('<br>' + ' Es ' + resultado.lastIndexOf('a'))
+document.write('<br>' + resultado[66] + resultado[67] + resultado[68])
+
+//padStart rellena la cadena
+document.write('<br>' + 'padStart')
+document.write('<br>' + ' Es ' + cadena.padStart(30,"abc"))
+
+//padEnd rellena la cadena al final
+document.write('<br>' + 'padEnd')
+document.write('<br>' + ' Es ' + cadena.padEnd(30,"abc"))
+
+//repeat
+document.write('<br>' + 'repeat')
+document.write('<br>' + ' Es ' + cadena.repeat(3))
+
