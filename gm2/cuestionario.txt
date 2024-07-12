@@ -33,4 +33,60 @@ let variable1 = 2;
 //en este caso, el error esta en la variable1 ya que esta en el mismo bloque que la primera
 por otro lado, const solo se puede declarar y asignar el valor una sola vez, puede ser por ejemplo en los DNI
 
-4-Las variables let se pueden acceder solo entre llaves, es decir, si hago un for y un let variable, afuera del for, no puedo hacer un console.log(variabe)
+3-Una variable con var se puede usar en toda la función donde se creo. Si la creas fuera de una función, puedes usarla en cualquier parte de tu código.
+
+4-Una variable con let solo se puede usar dentro del bloque de código donde la creaste, como dentro de un par de llaves en un if o for, etc.
+
+5-ambito const == ambito let
+
+6-no pasa nada malo, pero no es una buena práctica porque puede causar confusión.
+
+7-Cuando se intenta declarar la misma variable dos veces con let en el mismo lugar, va a dar un error. Esto ayuda a evitar errores en el código.
+
+8-Si intentas cambiar el valor de una variable declarada con const, da un error porque const significa que la variable no puede cambiar.
+
+9-Sí, la variable tendrá el valor undefined por defecto.
+
+10-Si se intenta usar una variable que no se declaro, va a dar un error llamado ReferenceError.
+
+11-// Declarar una variable
+let nombre;
+// Inicializar una variable
+nombre = 'tomas;
+
+12-El hoisting es donde las declaraciones de variables y funciones se "mueven" en funciónes o bloques. Osea, que se puede usar una función o variable antes de declararla en el código.
+
+13-Las variables declaradas con var se pueden usar antes de declararse, pero su valor es undefined.
+console.log(nombre); // undefined
+var nombre = 'tomas';
+
+14-Si se intenta usar una variable antes de declararla con let o const, devuelve (ReferenceError), ya que estas variables no se elevan de la misma manera que las variables var.
+
+15-Una variable global es una variable que se declara fuera de cualquier función o bloque, lo que significa que puede ser usada en cualquier parte de tu código.
+
+var globalVariable = 'soy la variable global';
+function ejemplo() {
+  console.log(globalVariable);
+}
+ejemplo();
+
+16-Sí, se pueden cambiar el tipo de datos de una variable porque es un lenguaje de tipado dinámico.
+
+let cambio = 18; 
+cambio = 'Ahora es Tomas'; 
+
+17-Se usa typeof para verificar el tipo de variable
+
+let edad = 18;
+console.log(typeof edad);
+//devuelve number
+
+let nombre = 'tomas';
+console.log(typeof nombre); 
+devuelve string
+
+
+
+
+
+
