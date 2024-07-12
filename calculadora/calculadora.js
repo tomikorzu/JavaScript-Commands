@@ -3,14 +3,28 @@
 //getElementById : selecciona elemento por ID
 //getElementByTagName : selecciona todos los elementos con el nombre de la etiqueta
 //querySelector  => Ejemplos
-const tituloPrincipal = document.querySelector('h1')
-console.log('<br>' + 'El titulo principal es: ' + tituloPrincipal.textContent)
+const tituloPrincipal = document.querySelector('h1');
+if (tituloPrincipal) {
+    console.log('El titulo principal es: ' + tituloPrincipal.textContent);
+} else {
+    console.log('El elemento h1 no se encontró.');
+}
 
-const pClass = document.querySelector('.parrafoClase')
-console.log('<br>' + 'El texto del parrafo clase es: ' + pClass.textContent)
+const pClass = document.querySelector('.parrafoClase');
+if (pClass) {
+    console.log('El texto del parrafo clase es: ' + pClass.textContent);
+} else {
+    console.log('El elemento con clase parrafoClase no se encontró.');
+}
 
-const pId = document.querySelector('.parrafoId')
-console.log('<br>' + 'El texto del parrafo id es: ' + pId.textContent)
+
+const pId = document.querySelector('.parrafoId');
+if (pId) {
+    console.log('El texto del parrafo id es: ' + pId.textContent);
+} else {
+    console.log('El elemento con clase parrafoId no se encontró.');
+}
+
 console.clear()
 //inputs
 
@@ -34,7 +48,6 @@ function calcular() {
     let valido2 = false;
     let valido3 = false;
 
-    // Validar primer número
     if (isNaN(num1) || op1.value === '') {
         console.log('Error: Ingrese el operador 1');
     } else {
@@ -42,7 +55,6 @@ function calcular() {
         console.log('Operador 1 válido');
     }
 
-    // Validar operador
     if (operador === '+' || operador === '-' || operador === '*' || operador === '/') {
         valido2 = true;
         console.log('Operador válido');
@@ -50,7 +62,6 @@ function calcular() {
         console.log('Error: Ingrese el signo de operación correspondiente');
     }
 
-    // Validar segundo número
     if (isNaN(num2) || op3.value === '') {
         console.log('Error: Ingrese el operador 2');
     } else {
@@ -74,7 +85,6 @@ function calcular() {
                 break;
         }
         
-        // Mostrar el resultado en el input 'results'
         results.value = 'El resultado es: ' + resultado;
     } else {
         results.value = '';
