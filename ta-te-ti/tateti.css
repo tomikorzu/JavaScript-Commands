@@ -54,31 +54,19 @@ h2 {
   flex-direction: column;
   gap: 10px;
 }
-.card1,
-.card2,
-.card3,
-.card4,
-.card5,
-.card6,
-.card7,
-.card8,
-.card9 {
+.card {
   width: 100px;
   height: 100px;
   background-color: #515d7c;
   border-radius: 5px;
 }
-.card1:hover,
-.card2:hover,
-.card3:hover,
-.card4:hover,
-.card5:hover,
-.card6:hover,
-.card7:hover,
-.card8:hover,
-.card9:hover {
+.card:hover{
   box-shadow: 0 0 10px 4px #fff;
   transition: 0.4s;
+  cursor: pointer;
+}
+.h3-winner{
+    padding: 0 0 20px;
 }
 .resetBtn {
   background-color: #515d7c;
@@ -90,6 +78,24 @@ h2 {
   border-radius: 5px;
 }
 .resetBtn:hover {
-    background-color: #933a3a;
-    transition: .4s;
+  background-color: #933a3a;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.card img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card img.visible {
+  opacity: 1;
+}
+
+.card img.fade-out {
+  opacity: 0;
 }
