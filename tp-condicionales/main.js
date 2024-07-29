@@ -53,14 +53,14 @@ if (n1 <0){
 //Ejercicio 7
 //Crea un bloque de código que imprima en consola un número en caso de que NO sea un número negativo.
 let n2 = 201 - 200
-if (n2 > 0){
+if (n2 >= 0){
     console.log(n2)
 }
 
 //Ejercicio 8
 //Crea un bloque de código que compare dos números. Si el número es par, imprimir en consola ‘El número es par’. De lo contrario, imprimir ‘El número es impar’.
-let par = 3
-if (par %2 == 2){
+let number = 3
+if (number %2 === 0){
     console.log('El numero es par')
 } else{
     console.log('el numero es impar')
@@ -70,7 +70,7 @@ if (par %2 == 2){
 //Crea un bloque de código que compare dos números y luego imprima en consola si es positivo o negativo.
 let num1 = 100
 let num2 = -50
-if (num1 > 0){
+if (num1 >= 0){
     console.log('El numero 1 es positivo')
 } else {
     console.log('El numero 1 es negativo')
@@ -167,6 +167,8 @@ if (numm1 % 3 == 0 && numm1 % 2 == 0 ){
     console.log('es divisible por 2')
 } else if(numm1 % 3 == 0 ){
     console.log('es divisible por 3')
+} else{
+    console.log('no es divisible por ninguno')
 }
 
 //ejercicio 17
@@ -227,4 +229,5 @@ switch(daySwitch){
         break;
     }
 
-    
+//ejercicio 19
+//Crea un bloque de código que tome de referencia una letra correspondiente al género (‘H’, ‘M’, ‘X’…). Utiliza una sentencia switch para imprimir en consola el género correspondiente.
