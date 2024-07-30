@@ -34,7 +34,6 @@ let op3 = document.getElementById('input3');
 const btnCalc = document.getElementById('calc');
 const btnReset = document.getElementById('reset')
 let results = document.getElementById('results');
-console.log(results.value)
 
 function calcular() {
     console.clear()

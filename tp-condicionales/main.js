@@ -231,3 +231,187 @@ switch(daySwitch){
 
 //ejercicio 19
 //Crea un bloque de código que tome de referencia una letra correspondiente al género (‘H’, ‘M’, ‘X’…). Utiliza una sentencia switch para imprimir en consola el género correspondiente.
+let genero = 'M'
+switch(genero) {
+    case 'H':
+        console.log('Hombre')
+        break
+    case 'M':
+        console.log('Mujer')
+        break
+    case 'X':
+        console.log('No binario')
+        break
+    default:
+        console.log('Género no reconocido')
+        break
+}
+
+//ejercicio 20
+//Crea un bloque de código que reciba un número del 1 al 10. Utiliza switch para imprimir en consola ‘Uno’, ‘Dos’, ‘Tres’, o ‘Mayor a 3’, según corresponda. 
+let numero = 4
+switch(numero) {
+    case 1:
+        console.log('Uno')
+        break
+    case 2:
+        console.log('Dos')
+        break
+    case 3:
+        console.log('Tres')
+        break
+    default:
+        console.log('Mayor a 3')
+        break
+}
+
+//ejercicio 21
+//Crea un bloque de código que tome de referencia una letra. Utiliza switch para imprimir en consola si es una vocal, una consonante, o un caracter especial.
+let letra = '!'
+switch(letra) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+        console.log('Vocal')
+        break
+    case 'b': case 'c': case 'd': case 'f': case 'g': case 'h': case 'j': case 'k':
+    case 'l': case 'm': case 'n': case 'p': case 'q': case 'r': case 's': case 't':
+    case 'v': case 'w': case 'x': case 'y': case 'z':
+        console.log('Consonante')
+        break
+    default:
+        console.log('Carácter especial')
+        break
+}
+
+//ejercicio 22
+//Crea un bloque de código que tome de referencia un número del 1 al 4. Utiliza switch para imprimir en consola la estación del año correspondiente.
+let estacion = 3
+switch(estacion) {
+    case 1:
+        console.log('Verano')
+        break
+    case 2:
+        console.log('Otoño')
+        break
+    case 3:
+        console.log('Invierno')
+        break
+    case 4:
+        console.log('Primavera')
+        break
+    default:
+        console.log('Número no válido')
+        break
+}
+
+//ejercicio 23
+//Crea un bloque de código que tome de referencia una variable ‘edad’. Utiliza el operador ternario para imprimir en consola si es o no mayor de edad.
+let edad = 20
+console.log(edad >= 18 ? 'Mayor de edad' : 'Menor de edad')
+
+//ejercicio 24
+//Crea un bloque de código que tome de referencia un número. Utiliza el operador ternario para determinar si es par o impar y muestra el resultado en consola.
+let numero24 = 4
+console.log(numero % 2 === 0 ? 'Par' : 'Impar')
+
+//ejercicio 25
+//Crea un bloque de código que tome de referencia dos números y utilice el operador ternario para determinar cual de los dos es el mayor. Luego imprime en consola el resultado.
+let num125 = 10
+let num225 = 20
+console.log(num1 > num2 ? num1 : num2)
+
+//ejercicio 26
+//Crea un bloque de código que tome de referencia un número del 1 al 7 y utilice el operador ternario para imprimir en consola el día de la semana correspondiente.
+let diaNumero = 3
+console.log(diaNumero === 1 ? 'Lunes' : 
+            diaNumero === 2 ? 'Martes' : 
+            diaNumero === 3 ? 'Miércoles' : 
+            diaNumero === 4 ? 'Jueves' : 
+            diaNumero === 5 ? 'Viernes' : 
+            diaNumero === 6 ? 'Sábado' : 
+            diaNumero === 7 ? 'Domingo' : 
+            'Número no válido')
+
+//ejercicio 27
+//Crea un bloque de código que tome de referencia un número. Utiliza el operador ternario para determinar si es positivo, negativo o cero e imprime el resultado en consola.
+let num = -5
+console.log(num > 0 ? 'Positivo' : num < 0 ? 'Negativo' : 'Cero')
+
+//ejercicio 28
+//Crea un bloque de código que tome de referencia un número del 1 al 100 y utilice el operador ternario para determinar si es múltiplo de 3 y 5 para imprimir el resultado en consola.
+let numeroRef = 15
+console.log(numeroRef % 3 === 0 && numeroRef % 5 === 0 ? 'Múltiplo de 3 y 5' : 'No es múltiplo de 3 y 5')
+
+//ejercicio 29
+//Crea un bloque de código que tome de referencia un número del 1 al 100 y, utilizando el tipo de condicional que prefieras, imprimir si es múltiplo de 2, 3 o 5 incluyendo las diferentes combinaciones posibles.
+let numero29 = 30
+if (numero % 2 === 0 && numero % 3 === 0 && numero % 5 === 0) {
+    console.log('Múltiplo de 2, 3 y 5')
+} else if (numero % 2 === 0 && numero % 3 === 0) {
+    console.log('Múltiplo de 2 y 3')
+} else if (numero % 2 === 0 && numero % 5 === 0) {
+    console.log('Múltiplo de 2 y 5')
+} else if (numero % 3 === 0 && numero % 5 === 0) {
+    console.log('Múltiplo de 3 y 5')
+} else if (numero % 2 === 0) {
+    console.log('Múltiplo de 2')
+} else if (numero % 3 === 0) {
+    console.log('Múltiplo de 3')
+} else if (numero % 5 === 0) {
+    console.log('Múltiplo de 5')
+} else {
+    console.log('No es múltiplo de 2, 3 ni 5')
+}
+
+//ejercicio 30
+//Crea un bloque de código que reciba un numero del 1 al 1000. Utiliza el tipo de condicional que prefieras para imprimir en consola si el numero es par o impar, si es divisible por 2, por 3 o por 5, y si es mayor o menor a 50.
+let numero230 = 123
+console.log(numero2 % 2 === 0 ? 'Par' : 'Impar')
+if (numero2 % 2 === 0) console.log('Divisible por 2')
+if (numero2 % 3 === 0) console.log('Divisible por 3')
+if (numero2 % 5 === 0) console.log('Divisible por 5')
+console.log(numero2 > 50 ? 'Mayor a 50' : 'Menor o igual a 50')
+
+//ejercicio 31
+//Desarrolla 10 nuevas situaciones en donde requieras de utilizar condicionales para su resolución.
+let situacion1 = 45
+console.log(situacion1 > 18 ? 'Mayor de edad' : 'Menor de edad')
+
+let situacion2 = 'azul'
+console.log(situacion2 === 'rojo' ? 'Es rojo' : 'No es rojo')
+
+let situacion3 = 7
+console.log(situacion3 % 7 === 0 ? 'Es múltiplo de 7' : 'No es múltiplo de 7')
+
+let situacion4 = 100
+if (situacion4 > 0 && situacion4 < 101) console.log('Es un número entre 1 y 100')
+else console.log('No está en el rango')
+
+let situacion5 = 4
+console.log(situacion5 % 2 === 0 ? 'Es un número par' : 'Es un número impar')
+
+let situacion6 = 'e'
+console.log('aeiou'.includes(situacion6) ? 'Es una vocal' : 'Es una consonante o carácter especial')
+
+let situacion7 = -5
+console.log(situacion7 < 0 ? 'Es un número negativo' : 'Es un número positivo o cero')
+
+let situacion8 = 'admin'
+console.log(situacion8 === 'admin' ? 'Acceso permitido' : 'Acceso denegado')
+
+let situacion9 = 30
+console.log(situacion9 >= 25 && situacion9 <= 35 ? 'Edad en el rango 25-35' : 'Edad fuera del rango')
+
+let situacion10 = 6
+if (situacion10 >= 1 && situacion10 <= 3) {
+    console.log('Bajo')
+} else if (situacion10 >= 4 && situacion10 <= 7) {
+    console.log('Medio')
+} else if (situacion10 >= 8 && situacion10 <= 10) {
+    console.log('Alto')
+} else {
+    console.log('Fuera de rango')
+}

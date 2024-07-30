@@ -8,12 +8,12 @@ const xImageSrc = '../img/x.png';
 const oImageSrc = '../img/Blue_circle.png';
 
 cards.forEach(card => {
-    card.addEventListener('click', handleCardClick);
+    card.addEventListener('click', clickInCard);
 });
 
 reset.addEventListener('click', resetGame);
 
-function handleCardClick(event) {
+function clickInCard(event) {
     const card = event.target;
     if (card.innerHTML === '' && !card.classList.contains('disabled')) {
         const img = document.createElement('img');
