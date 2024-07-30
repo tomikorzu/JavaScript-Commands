@@ -186,10 +186,33 @@ console.log(bothPositivesResult)
 //Declara una función llamada calcularImpuesto que acepte un parámetro ingreso. Si el ingreso es menor de 10000, el impuesto es del 10%. Si es entre 10000 y 20000, el impuesto es del 15%. Si es mayor de 20000, el impuesto es del 20%. La función debe devolver el valor del impuesto.
 function calculateTax(income){
     let tax
-    if (income < 10000){
-        tax = 0.1
+    if (income <= 10000){
+        tax = .1
+    } else if(income > 10000 && income < 20000){
+        tax = .15
+    } else{
+        tax = .2
     }
+    let value = income - (income * tax) 
+    return `The total cost with tax is $${value}` 
 }
+let calculateTaxResult = calculateTax(19999)
+console.log(calculateTaxResult)
 
 //ejercicio 22
 //Declara una función llamada clasificarNota que acepte un parámetro nota. Si la nota es 90 o más, devuelve "A". Si es entre 80 y 89, devuelve "B". Si es entre 70 y 79, devuelve "C". Si es entre 60 y 69, devuelve "D". Si es menor de 60, devuelve "F".
+function classifyNote(note){
+    if (note >= 90){
+        return `A`
+    } else if (note >= 80 && note <= 89){
+        return `B`
+    } else if(note >= 70 && note <= 79){
+        return `C`
+    } else if(note >= 60 && note <= 69){
+        return `D`
+    } else{
+        return `F`
+    }
+}
+let classifyNoteResult = classifyNote(59)
+console.log(classifyNoteResult)
