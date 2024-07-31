@@ -231,42 +231,12 @@ console.log(classifyNoteResult)
 //Mostrar el resumen del pedido: Usar console.log para mostrar todos los detalles del pedido, incluyendo el costo total, el descuento aplicado, el impuesto, y el costo final.
 
 function manageOrder(name, age, amount, unitPrice, pay){
-    function greet(name){
-        console.log(`Hello ${name}, how are you?`);
-    }
-    greet(name);
-    
-    function isAdult(age){
-        if (age < 18){
-            console.log(`ALERT: The customer can't buy alcoholic drinks`);
-        }
-    }
+    greet(name);    
     isAdult(age);
-    
-    function totalCost(amount, unitPrice){
-        return amount * unitPrice;
-    }
+
     let totalCostResult = totalCost(amount, unitPrice);
-    
-    function discount(totalCostResult, age){
-        if (age >= 60){
-            return totalCostResult * 0.9; 
-        }
-        return totalCostResult;
-    }
     totalCostResult = discount(totalCostResult, age);
-    
-    function paymentMethod(totalCostResult, pay){
-        if (pay === 'cash'){
-            return totalCostResult * 0.9; 
-        }
-        return totalCostResult;
-    }
     totalCostResult = paymentMethod(totalCostResult, pay);
-    
-    function coverCharge(totalCostResult){
-        return totalCostResult * 1.05;
-    }
     let finalCost = coverCharge(totalCostResult);
     
     console.log(`Order Summary:`);
@@ -275,6 +245,45 @@ function manageOrder(name, age, amount, unitPrice, pay){
     console.log(`Discount Applied: $${((amount * unitPrice) - totalCostResult).toFixed(2)}`);
     console.log(`Payment Method: ${pay}`);
     console.log(`Final Cost after tax: $${finalCost.toFixed(2)}`);
+}
+
+function greet(name){
+    console.log(`Hello ${name}, how are you?`);
+}
+
+function isAdult(age){
+    if (age < 18){
+        console.log(`ALERT: The customer can't buy alcoholic drinks`);
+    }
+}
+
+function totalCost(amount, unitPrice){
+    return amount * unitPrice;
+}
+
+function discount(totalCostResult, age){
+    if (age >= 60){
+        return totalCostResult * 0.9; 
+    }
+    return totalCostResult;
+}
+
+function discount(totalCostResult, age){
+    if (age >= 60){
+        return totalCostResult * 0.9; 
+    }
+    return totalCostResult;
+}
+
+function paymentMethod(totalCostResult, pay){
+    if (pay === 'cash'){
+        return totalCostResult * 0.9; 
+    }
+    return totalCostResult;
+}
+
+function coverCharge(totalCostResult){
+    return totalCostResult * 1.05;
 }
 
 manageOrder('Tomas', 70, 5, 500, 'cash');
