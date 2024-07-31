@@ -268,13 +268,6 @@ function discount(totalCostResult, age){
     return totalCostResult;
 }
 
-function discount(totalCostResult, age){
-    if (age >= 60){
-        return totalCostResult * 0.9; 
-    }
-    return totalCostResult;
-}
-
 function paymentMethod(totalCostResult, pay){
     if (pay === 'cash'){
         return totalCostResult * 0.9; 
