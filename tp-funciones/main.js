@@ -224,45 +224,57 @@ console.log(classifyNoteResult)
 //Verificar si el cliente es mayor de edad: Si es menor de edad, advertir que no puede consumir bebidas alcohólicas.
 //Calcular el costo total del pedido: Multiplicar la cantidad por el precio unitario.
 //Aplicar un descuento: Si el cliente tiene más de 60 años, aplicar un descuento del 10%.
-
 //Determinar el método de pago: Mostrar el método de pago elegido (Efectivo, Tarjeta, o Aplicación). Si es en efectivo, tiene un 10% de descuento acumulable.
+
 //Mostrar la hora del pedido: Verificar si el pedido es durante la hora pico (entre 12:00 y 14:00). Si es hora pico, mostrar un mensaje indicando que puede haber demoras.
 //Calcular el valor del cubierto: Aplicar un impuesto del 5% al costo total después del descuento.
 //Mostrar el resumen del pedido: Usar console.log para mostrar todos los detalles del pedido, incluyendo el costo total, el descuento aplicado, el impuesto, y el costo final.
 
-function manageOrder(name, age, amount, unitPrice){
+function manageOrder(name, age, amount, unitPrice, pay){
     function greet(name){
-        return `Hello ${name}, how are you?`
+        console.log(`Hello ${name}, how are you?`);
     }
-    let greetResult = greet(name)
-    console.log(greetResult)
+    greet(name);
     
     function isAdult(age){
         if (age < 18){
-            return `ALERT: The customer can't buy alcoholic drinks`
+            console.log(`ALERT: The customer can't buy alcoholic drinks`);
         }
     }
-    let isAdultResult = isAdult(age)
-    if(age < 18){
-        console.log(isAdultResult)
-    }
-
+    isAdult(age);
+    
     function totalCost(amount, unitPrice){
-        return amount * unitPrice
+        return amount * unitPrice;
     }
-    let totalCostResult = totalCost(amount, unitPrice)
-    console.log('The total cost is ' + totalCostResult)
-
-    function discount(totalCostResult){
+    let totalCostResult = totalCost(amount, unitPrice);
+    
+    function discount(totalCostResult, age){
         if (age >= 60){
-            return totalCostResult = totalCostResult - (totalCostResult * .1) 
+            return totalCostResult * 0.9; 
         }
+        return totalCostResult;
     }
-    let discountResult = discount(totalCostResult)
-    if (age >= 60){
-        console.log('A 10% discount will be applied for being over 60 years old. So customer must to pay ' + discountResult)
+    totalCostResult = discount(totalCostResult, age);
+    
+    function paymentMethod(totalCostResult, pay){
+        if (pay === 'cash'){
+            return totalCostResult * 0.9; 
+        }
+        return totalCostResult;
     }
+    totalCostResult = paymentMethod(totalCostResult, pay);
+    
+    function coverCharge(totalCostResult){
+        return totalCostResult * 1.05;
+    }
+    let finalCost = coverCharge(totalCostResult);
+    
+    console.log(`Order Summary:`);
+    console.log(`Customer: ${name}`);
+    console.log(`Total Cost: $${(amount * unitPrice).toFixed(2)}`);
+    console.log(`Discount Applied: $${((amount * unitPrice) - totalCostResult).toFixed(2)}`);
+    console.log(`Payment Method: ${pay}`);
+    console.log(`Final Cost after tax: $${finalCost.toFixed(2)}`);
 }
 
-
-manageOrder('tomas', 70, 500, 5)
+manageOrder('Tomas', 70, 5, 500, 'cash');
