@@ -216,3 +216,53 @@ function classifyNote(note){
 }
 let classifyNoteResult = classifyNote(59)
 console.log(classifyNoteResult)
+
+//Ejercicio Integrador: Gestión de Pedidos de Restaurante
+//Imagina que estás desarrollando un sistema de gestión de pedidos para un restaurante. La función principal se llama gestionarPedido.
+//La función debe realizar las siguientes tareas (funciones):
+//Saludar al cliente: Mostrar un saludo personalizado.
+//Verificar si el cliente es mayor de edad: Si es menor de edad, advertir que no puede consumir bebidas alcohólicas.
+//Calcular el costo total del pedido: Multiplicar la cantidad por el precio unitario.
+//Aplicar un descuento: Si el cliente tiene más de 60 años, aplicar un descuento del 10%.
+
+//Determinar el método de pago: Mostrar el método de pago elegido (Efectivo, Tarjeta, o Aplicación). Si es en efectivo, tiene un 10% de descuento acumulable.
+//Mostrar la hora del pedido: Verificar si el pedido es durante la hora pico (entre 12:00 y 14:00). Si es hora pico, mostrar un mensaje indicando que puede haber demoras.
+//Calcular el valor del cubierto: Aplicar un impuesto del 5% al costo total después del descuento.
+//Mostrar el resumen del pedido: Usar console.log para mostrar todos los detalles del pedido, incluyendo el costo total, el descuento aplicado, el impuesto, y el costo final.
+
+function manageOrder(name, age, amount, unitPrice){
+    function greet(name){
+        return `Hello ${name}, how are you?`
+    }
+    let greetResult = greet(name)
+    console.log(greetResult)
+    
+    function isAdult(age){
+        if (age < 18){
+            return `ALERT: The customer can't buy alcoholic drinks`
+        }
+    }
+    let isAdultResult = isAdult(age)
+    if(age < 18){
+        console.log(isAdultResult)
+    }
+
+    function totalCost(amount, unitPrice){
+        return amount * unitPrice
+    }
+    let totalCostResult = totalCost(amount, unitPrice)
+    console.log('The total cost is ' + totalCostResult)
+
+    function discount(totalCostResult){
+        if (age >= 60){
+            return totalCostResult = totalCostResult - (totalCostResult * .1) 
+        }
+    }
+    let discountResult = discount(totalCostResult)
+    if (age >= 60){
+        console.log('A 10% discount will be applied for being over 60 years old. So customer must to pay ' + discountResult)
+    }
+}
+
+
+manageOrder('tomas', 70, 500, 5)
