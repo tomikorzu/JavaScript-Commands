@@ -230,25 +230,73 @@ console.log(classifyNoteResult)
 //Calcular el valor del cubierto: Aplicar un impuesto del 5% al costo total después del descuento.
 //Mostrar el resumen del pedido: Usar console.log para mostrar todos los detalles del pedido, incluyendo el costo total, el descuento aplicado, el impuesto, y el costo final.
 
-function manageOrder(name, age, amount, unitPrice, pay){
-    greet(name);    
+function manageOrder(){
+    let name = prompt('Log your name:')
+    let newName = name.trim()
+    if (checkName(newName)){
+        greet(newName)
+    } else{
+        alert('The name logged is not correct')
+        return
+    }
+    
+    let age = parseFloat(prompt('Log your age:'))
+    if (isNaN(age)){
+        alert('The age logged is not correct')
+        return
+    }
+    let newAge = parseFloat(age)
+    if (checkAge(newAge)){
+        isAdult(newAge)
+    } 
+    
     isAdult(age);
 
-    let totalCostResult = totalCost(amount, unitPrice);
+    let product = prompt('Log the product:')
+    let newProduct = product.trim().toLowerCase()
+    if (checkProduct(newProduct)){
+        greet(newProduct)
+    } else{
+        alert('The product does not exist')
+        return
+    }
+
+    let quantity = parseFloat(prompt('Log the quantity of products you will buy'))
+    if (isNaN(quantity)){
+        alert('The quantity logged is not correct')
+        return
+    }
+    if (checkQuantity(quantity) === false){
+        return
+    } 
+
+    let method = prompt('Log the methodment method:')
+    let newMethod = method.trim().toLowerCase()
+    if (checkMethod(newMethod)){
+        greet(newMethod)
+    } else{
+        alert('The product does not exist')
+        return
+    }
+
+    let totalCostResult = totalCost(quantity, 100);
     totalCostResult = discount(totalCostResult, age);
-    totalCostResult = paymentMethod(totalCostResult, pay);
+    totalCostResult = paymentMethod(totalCostResult, method);
     let finalCost = coverCharge(totalCostResult);
     
     console.log(`Order Summary:`);
-    console.log(`Customer: ${name}`);
-    console.log(`Total Cost: $${(amount * unitPrice).toFixed(2)}`);
-    console.log(`Discount Applied: $${((amount * unitPrice) - totalCostResult).toFixed(2)}`);
-    console.log(`Payment Method: ${pay}`);
+    console.log(`Customer: ${newName}`);
+    console.log(`Total Cost: $${(quantity * 100).toFixed(2)}`);
+    console.log(`Discount Applied: $${((quantity * 100) - totalCostResult).toFixed(2)}`);
+    console.log(`methodment Method: ${method}`);
     console.log(`Final Cost after tax: $${finalCost.toFixed(2)}`);
 }
 
-function greet(name){
-    console.log(`Hello ${name}, how are you?`);
+function checkName(newName){
+    return ((newName.length) < 25 && (newName.length) > 0 && isNaN(newName))
+}
+function greet(newName){
+    console.log(`Hello ${newName}, how are you?`);
 }
 
 function isAdult(age){
@@ -256,9 +304,24 @@ function isAdult(age){
         console.log(`ALERT: The customer can't buy alcoholic drinks`);
     }
 }
+function checkAge(newAge){
+    return newAge >= 18 && newAge <= 100 
+}
 
-function totalCost(amount, unitPrice){
-    return amount * unitPrice;
+function checkProduct(newProduct){
+    return (newProduct === 'manzana' || newProduct === 'banana')
+}
+
+function checkQuantity(quantity){
+    return quantity >= 1  
+}
+
+function checkMethod(newMethod){
+    return (newMethod === 'cash' || newMethod === 'card' || newMethod === 'application')
+}
+
+function totalCost(quantity){
+    return quantity * 100;
 }
 
 function discount(totalCostResult, age){
@@ -268,8 +331,8 @@ function discount(totalCostResult, age){
     return totalCostResult;
 }
 
-function paymentMethod(totalCostResult, pay){
-    if (pay === 'cash'){
+function paymentMethod(totalCostResult, method){
+    if (method === 'cash'){
         return totalCostResult * 0.9; 
     }
     return totalCostResult;
@@ -279,4 +342,7 @@ function coverCharge(totalCostResult){
     return totalCostResult * 1.05;
 }
 
-manageOrder('Tomas', 70, 5, 500, 'cash');
+
+manageOrder();
+
+//prompt
