@@ -255,7 +255,7 @@ function manageOrder(){
     let product = prompt('Log the product:')
     let newProduct = product.trim().toLowerCase()
     if (checkProduct(newProduct)){
-        checkMethod(newProduct)
+        console.log('We have the product')
     } else{
         alert('The product does not exist')
         return
