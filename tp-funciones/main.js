@@ -273,9 +273,9 @@ function manageOrder(){
     let method = prompt('Log the payment method:')
     let newMethod = method.trim().toLowerCase()
     if (checkMethod(newMethod)){
-        greet(newMethod)
+        console.log('You are paying with ' + newMethod)
     } else{
-        alert('The product does not exist')
+        console.log('We dont have that payment method')
         return
     }
 
