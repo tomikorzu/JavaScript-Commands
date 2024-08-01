@@ -255,7 +255,7 @@ function manageOrder(){
     let product = prompt('Log the product:')
     let newProduct = product.trim().toLowerCase()
     if (checkProduct(newProduct)){
-        greet(newProduct)
+        checkMethod(newProduct)
     } else{
         alert('The product does not exist')
         return
@@ -270,7 +270,7 @@ function manageOrder(){
         return
     } 
 
-    let method = prompt('Log the methodment method:')
+    let method = prompt('Log the payment method:')
     let newMethod = method.trim().toLowerCase()
     if (checkMethod(newMethod)){
         greet(newMethod)
