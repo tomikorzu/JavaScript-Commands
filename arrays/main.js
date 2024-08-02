@@ -101,6 +101,9 @@ console.log(colors)
 //Las notas de las materias reprobadas
 //Si el alumno pasó de año (aprobó todas las materias)
 //La nota más alta
+//Indicar si el alumno tuvo algún 10
+//Indicar si el alumno aprobó alguna materia raspando (con la nota mínima de aprobación)
+
 
 
 function studentPassed(username, subjectNotes){
@@ -120,7 +123,7 @@ function studentPassed(username, subjectNotes){
     } else{
         studentPassedResult = false
      }
- 
+
  
     console.log('The user name is: ' + username)
     console.log('The quantity of subject completed are : ' + subjectQuantity)
