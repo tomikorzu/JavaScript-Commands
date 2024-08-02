@@ -1,3 +1,5 @@
+//Shift, pop, unshift
+
 //Consigna:
 //Con todo lo aplicado las demás clases, vamos a resolver estos ejercicios
 //Tarea: Resolver los ejercicios, imprimiendo al final el estado actual.
@@ -87,3 +89,49 @@ console.log(colors)
 //● Elimina el primer color del array.
 colors.shift()
 console.log(colors)
+
+//find, filter
+
+//Desarrollar una función que reciba el nombre de un alumno, las notas de sus materias, y la nota de aprobación (4/6/7) e imprima:
+//Nombre del usuario
+//Cantidad de materias cursadas
+//Cantidad de materias aprobadas
+//Las notas de las materias aprobadas
+//Cantidad de materias reprobadas
+//Las notas de las materias reprobadas
+//Si el alumno pasó de año (aprobó todas las materias)
+//La nota más alta
+
+
+function studentPassed(username, subjectNotes){
+     let subjectQuantity = subjectNotes.length
+     let subjectsApproved
+     let subjectFailed
+     let studentPassedResult
+ 
+     subjectsApproved = subjectNotes.filter(function(subjectNote){
+         return subjectNote >= 6
+     })
+     subjectFailed = subjectNotes.filter(function(subjectNote){
+         return subjectNote < 6
+     })
+     if (subjectsApproved.length == subjectQuantity){
+        studentPassedResult = true
+    } else{
+        studentPassedResult = false
+     }
+ 
+ 
+    console.log('The user name is: ' + username)
+    console.log('The quantity of subject completed are : ' + subjectQuantity)
+    console.log('The quantity of subject approved are : ' + subjectsApproved.length)
+    console.log('the notes of subject approved are: ' + subjectsApproved)
+    console.log('The quantity of subject failed are : ' + subjectFailed.length)
+    console.log('The notes of subject failed are: ' + subjectFailed)
+    console.log('Is the student passed the year? ' + studentPassedResult)
+ 
+ }
+ 
+ 
+ studentPassed('tomas', [8, 10, 6, 5, 2, 10], 6)
+
