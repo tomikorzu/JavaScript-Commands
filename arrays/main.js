@@ -111,6 +111,8 @@ function studentPassed(username, subjectNotes){
      let subjectsApproved
      let subjectFailed
      let studentPassedResult
+     let subjectNoteOfTenResult = false
+     let subjectNoteOfSixResult = false
  
      subjectsApproved = subjectNotes.filter(function(subjectNote){
          return subjectNote >= 6
@@ -123,6 +125,19 @@ function studentPassed(username, subjectNotes){
     } else{
         studentPassedResult = false
      }
+    
+     let subjectNoteOfTen = subjectNotes.find(function(subjectNote){
+       return subjectNote === 10
+     }) 
+     if (subjectNoteOfTen === 10){
+        subjectNoteOfTenResult = true
+     }
+     let subjectNoteOfSix = subjectNotes.find(function(subjectNote){
+        return subjectNote === 6
+      }) 
+      if (subjectNoteOfSix === 6){
+         subjectNoteOfSixResult = true
+      }
 
  
     console.log('The user name is: ' + username)
@@ -132,9 +147,11 @@ function studentPassed(username, subjectNotes){
     console.log('The quantity of subject failed are : ' + subjectFailed.length)
     console.log('The notes of subject failed are: ' + subjectFailed)
     console.log('Is the student passed the year? ' + studentPassedResult)
+    console.log('Is the student got a ten in any exam of the year? ' + subjectNoteOfTenResult)
+    console.log('Is the student pass razing in any exam of the year? ' + subjectNoteOfSixResult)
  
  }
  
  
- studentPassed('tomas', [8, 10, 6, 5, 2, 10], 6)
+ studentPassed('tomas', [3, 5, 6, 5, 8, 8], 6)
 
