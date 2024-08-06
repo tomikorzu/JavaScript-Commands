@@ -349,3 +349,254 @@ let agesArrayResult = agesArray.some(function(ageArray){
     return ageArray >= 13 && ageArray <= 17
 })
 console.log(agesArrayResult)
+
+// Conocimientos 2
+
+//Ejercicio 1
+//Tienes dos listas de productos en tu tienda online. Combina estas listas en una sola usando lo visto anteriormente y mostrarlo por consola.
+//  let electronics = ['laptop', 'phone', 'tablet']; 
+//  let accessories = ['headphones', 'charger', 'case'];
+
+let electronics = ['laptop', 'phone', 'tablet']
+let accessories = ['headphones', 'charger', 'case']
+let electronicsAndAccesories  = electronics + ', ' + accessories
+console.log(electronicsAndAccesories)
+
+//Ejercicio 2
+// Tienes una lista de los productos más vendidos. Extrae el primero y el segundo producto usando destructuring.
+// let bestSellers = ['laptop', 'phone', 'tablet', 'monitor'];
+
+let bestSellers = ['laptop', 'phone', 'monitor']
+let [first , second ,] = bestSellers
+console.log(first, second)
+
+//Ejercicio 3
+// Verifica si el producto phone existe en la lista de productos, si existe, mostrar por consola un mensaje “Existe el producto [nombre del producto]”
+// let saleItems = ['laptop', 'phone', 'headphones'];
+
+let saleItems = ['laptop', 'phone', 'headphones'];
+let saleItemsPhone = saleItems.some(function(saleItem){
+    return saleItem === 'phone'
+})
+if (saleItemsPhone === true){ 
+    console.log('Existe el elemento phone')
+} else{
+    console.log('No existe el elemento phone')
+}
+// Ejercicio 4
+// Verifica si un producto específico está en la lista de deseos. Si existe, mostrar por consola un mensaje “El producto existe, su nombre es [nombre del producto]”
+// let wishlist = ['laptop', 'phone', 'headphones'];
+
+let wishlist = ['laptop', 'phone', 'headphones'];
+let wishlistResult = wishlist.find(function(product){
+    return product === 'phone'
+})
+if (wishlistResult === 'phone'){
+    console.log('Si, el prodcto existe, su nombre es: ', wishlistResult)
+} else{
+    console.log('El producto no existe')
+}
+
+//Ejercicio 5
+// Filtra los productos que incluya con la letra 'p' en la lista.
+let products = [
+    'laptop',
+    'phone',
+    'tablet',
+    'printer', 
+    'pen',
+    'monitor',
+    'keyboard',
+    'mouse',
+    'headphones',
+    'camera',
+    'notebook'
+  ];
+  console.log(products[2].length)
+let productsResult = products.filter(function(product){
+    return product.includes('p') === true
+})  
+console.log(productsResult)
+
+//Ejercicio 6
+// Escribe una función combineProductLists que tome dos listas de productos y las combine en una sola usando la sintaxis spread.
+
+function combineProductLists(firstProducts, secondProducts){
+    return [...firstProducts, ...secondProducts]
+}
+
+let firstProducts = ['laptop',
+'phone',
+'tablet']
+let secondProducts = ['monitor',
+'keyboard',
+'mouse']
+let combineProductListsResult = combineProductLists(firstProducts, secondProducts)
+console.log(combineProductListsResult)
+
+// Ejercicio 7 
+// Crea una función getTopTwo que tome una lista de productos y devuelva los dos primeros usando destructuring.
+
+function getTopTwo(productsGet){
+    let [ firstProduct, secondProduct, ] = productsGet
+    console.log(firstProduct, secondProduct)
+}
+
+getTopTwo(['laptop',
+'phone',
+'tablet'])
+
+//Ejercicio 8
+// Escribe una función isOnSale que verifique si algún producto de una lista de productos en oferta es un artículo específico.
+//Ejemplo, si tengo una lista de productos electrónicos, y quiero que el producto en oferta sea celular, entonces ese es el que debería ser tomado en cuenta a la hora de validar dentro de nuestra función.
+
+function isOnSale(prodctOffer, checkProduct) {
+    let isOnSaleResult = prodctOffer.some(function(product){
+        return product === checkProduct
+    })
+    if (isOnSaleResult === true){
+        console.log('El producto ' + checkProduct + ' si esta en la lista')
+    } else{
+        console.log('El producto ' + checkProduct + ' no esta en la lista')
+    }
+}
+isOnSale(['laptop', 'phone', 'tv'], 'tv')
+
+//Ejercicio 9
+// Crea una función areAllWordsLong que verifique si todas las palabras en una lista tienen más de tres letras.
+function areAllWordsLong(words){
+    let wordsResult = words.every(function(word){
+        return word.length > 3
+    })
+    console.log('Todas las palabras tienen mas de 3 letras? ' + wordsResult)
+}
+areAllWordsLong(['Palabra 1', 'palabra 2', 'p3', 'palabra 4'])
+
+//Ejercicio 10
+// Crea una función areAllEven que verifique si todos los números en una lista son pares.
+function areAllEven(numbers){
+    let numberResult = numbers.every(function(number){
+        return number % 2 === 0
+    })
+    console.log(numberResult)
+}
+areAllEven([2,2,4,6,8])
+
+//ejercicio 11
+// Escribe una función findProductWithLetter que encuentre el primer producto en la lista que contiene una letra específica.
+function findProductWithLetter(productsFind){
+    let checkProduct = productsFind.some(function(product){
+        return product.includes('p')
+    })
+    if (checkProduct === true){
+        let productsFindResult = productsFind.find(function (productFind){
+            return productFind.includes('p')
+        })
+        console.log(productsFindResult)
+    } else{
+        console.log('Esa palabra no tiene esa letra')
+    }
+}
+findProductWithLetter(['product1', 'product2', 'product3'])
+
+//Ejercicio 12
+//Define una función createProduct que agregue a un array el producto, pero que antes verifique si el producto ya existe en ese array
+// Ejemplo de uso:
+// Si el producto existe Mostrar mensaje El producto [nombre] ya existe
+// Si no existe, lo agrego al array y retorno los valores.
+
+function createProduct(products, addProduct){
+    let checkProduct = products.some(function(product){
+        return product === addProduct
+    })
+    if (checkProduct === true){
+        console.log('El producto ' + addProduct + ' Ya existe')
+    } else{
+        products.push(addProduct)
+        console.log(products)
+    }
+}
+createProduct(['tablets', 'phone', 'laptop'], 'tv')
+
+//Ejercicio 13
+// Escribe una función arePricesInRange que compruebe si todos los precios de una lista están entre 50 y 150.
+// Ejemplos:
+// const prices1 = [60, 80, 120, 150];
+// const prices2 = [40, 80, 120, 200];
+function arePricesInRange(numbers){
+    let numberResult = numbers.every(function(number){
+        return number >= 50 && number <= 150
+    })
+    console.log(numberResult)
+}
+arePricesInRange([51, 80, 140, 150])
+
+//Ejercicio 14
+// Define una función formatExpensiveProducts que tome una lista de precios y agregue una etiqueta Caro a los precios superiores a 100.
+// Ejemplo:
+// const prices = [80, 120, 200, 90];
+// ['$80', 'Caro: $120', 'Caro: $200', '$90']
+
+function formatExpensiveProducts(prices, priceRefference){
+    let formatExpensiveProductsResult = prices.map(function(price){
+        if (price >= 100){
+            price = priceRefference + price
+        }
+        return price
+    })
+    console.log(formatExpensiveProductsResult)
+}
+formatExpensiveProducts([10, 20, 110, 25000], 'Caro: ')
+
+//Ejercicio 15
+// Define una función addIfNotExists que añada un producto a una lista solo si no está ya presente.
+function addIfNotExists(product, productAdded){
+    if (product.includes(productAdded)){
+        console.log('El producto ya existe')
+    } else{
+        product.push(productAdded)
+        console.log('ahora los productos son: ' + product)
+    }
+}
+addIfNotExists(['product1', 'product2', 'product3'], 'product3')
+
+//Ejercicio 16
+// Crea una función createDescriptions que tome una lista de nombres de productos y una lista de precios, y devuelva una lista de descripciones que combine ambos usando map.
+// Se debe ver algo parecido a esto (La descripción puede cambiar según lo que estemos contemplando nosotros):
+// ['laptop cuesta $1000', 'phone cuesta $500', 'tablet cuesta 300']
+function createDescriptions(productNames, prices){
+    let createDescriptionsResult = productNames.map(function(product, index){
+        return product + ' cuesta ' + prices[index]
+    })
+    console.log(createDescriptionsResult)
+}
+createDescriptions(['phone', 'tv', 'tablet'], [1000, 500, 300])
+
+//Ejercicio 17
+//Crea una función addToWishlist que añada un producto a la lista de deseos solo si el producto no está ya presente y la lista de deseos tiene menos de 5 productos. Realizar validaciones correspondientes.
+function addToWishlist(wishesProduct, newWish){
+    if (wishesProduct.length < 5){
+        wishesProduct.push(newWish)
+        console.log(wishesProduct)
+    } else{
+        console.log('Solo pueden haber 5: ' + wishesProduct)
+    }
+}
+addToWishlist(['iphone', 'mcbook', 'ipad', 'ball'], 'play')
+
+//Ejercicio 18
+//Define una función inventoryMessages que tome una lista de productos y una lista de cantidades en inventario, devolviendo una lista de mensajes que indiquen si cada producto está en stock o agotado.
+// Ejemplo de salida:
+// ['laptop está en stock con 5 unidades', 'phone está agotado', 'tablet está en stock con 3 unidades']
+
+function inventoryMessages(products, stock){
+    let inventoryMessagesResult = products.map(function(product, index){
+        if (stock[index] >= 1){
+            return product + ' esta en stock con ' + stock[index] + ' unidades'
+        } else{
+            return product + ' esta agotado'
+        }
+    })
+    console.log(inventoryMessagesResult)
+}
+inventoryMessages(['rex', 'pepitos', 'chocolinas'], [0, 10, 20])
