@@ -46,8 +46,13 @@ function agePropertyExists(character){
     }
 }
 let agePropertyExistsResult = agePropertyExists(character)
-if (agePropertyExistsResult === true){
-    console.log('The age property exist, and now the age is: ' + (character.age + 1))
+if (agePropertyExistsResult === true) {
+    let characterModificado = {
+        name: character.name,
+        age: character.age + 1
+    }
+    character.age = character.age + 1
+    console.log('The age property exist, and now the age is: ' + (character.age))
 } else {
     console.log('The age property doesnt exists')
 }
@@ -222,3 +227,126 @@ function receiveCharacter(name, age, weapon){
     return character
 }
 console.log(receiveCharacter('Fernando', 30, 'gun5'))
+
+// Destructing with shrek
+
+// Part 1
+
+// Ejercicio 1
+// Crear un objeto con las propiedades nombre y especie de Shrek, y luego extraer esas propiedades con destructuring
+let firstCharacter = {
+    nameShrek: 'Shrek',
+    specieShrek: 'ogre'
+}
+let {nameShrek,specieShrek} = firstCharacter
+console.log(nameShrek)
+console.log(specieShrek)
+
+// Ejercicio 2
+// Crear un objeto con las propiedades nombre, edad, y especie de Burro, y luego extraer nombre y edad con alias nombrePersonaje y edadPersonaje respectivamente.
+let donkeyCharacter = {
+    name: 'donkey',
+    age: '30',
+    specie: 'donkay'
+}
+let {name: nameDonkay , age:ageDonkay} = donkeyCharacter
+console.log(nameDonkay, ageDonkay)
+
+// Ejercicio 3
+// Crear un objeto con las propiedades nombre y especie de Fiona, y luego extraer nombre y asignar un valor predeterminado de 'desconocida' a ocupacion.
+let fionaCharacter = {
+    name3: 'Fiona',
+    specie: 'ogre',
+    ocupationFiona: 'astronauta'
+}
+let {name3: nameFiona, ocupationFiona = 'ocupacion por defecto'} = fionaCharacter
+console.log(fionaCharacter)
+console.log(nameFiona, ocupationFiona)
+
+// Ejercicio 4
+// Crear un objeto con las propiedades nombre, especie, y edad de Shrek, y luego usar destructuring en los parámetros de una función para extraer nombre y especie.
+let nameAndSpecieShrek = {
+    name4: 'Shrek',
+    specie4: 'ogre',
+    age4: 60
+}
+let {name4: nameShrek4, specie4: specieShrek4, age4: ageShrek} = nameAndSpecieShrek
+console.log(nameShrek4, specieShrek4)
+
+// Ejercicio 5
+// Crear un objeto con las propiedades nombre, especie, edad, y amigos de Shrek, y luego extraer nombre, especie, y amigos, asignando un valor predeterminado de [] a enemigos si no existe.
+let nameSpecieFriendsShrek = {
+    friendsS : ['donkay', 'fiona', 'rex']
+}
+let {friendsS: friendsShrek , enemiesShrek = ['unknown']} = nameSpecieFriendsShrek
+
+console.log(nameShrek, specieShrek, friendsShrek, enemiesShrek)
+
+// Ejercicio 6
+// Crear un objeto con las propiedades nombre, especie, edad, y amigos de Shrek, y luego extraer nombre y amigos, y luego extraer el primer amigo.
+console.log(nameShrek, friendsShrek, [friendsShrek[0]])
+
+//Ejercicio 7
+// Crear un array de objetos con las propiedades nombre y edad de Shrek, Burro, y Fiona, y luego extraer nombre y edad de cada objeto en el array. Ponerle un alias adecuado a cada uno.
+let {ageFiona = 50} = fionaCharacter
+let arrayObjects = [nameShrek, ageShrek, nameDonkay, ageDonkay, nameFiona, ageFiona]
+console.log(arrayObjects)
+
+// Part 2
+
+// Ejercicio 1
+// Crear un objeto shrek con las propiedades nombre, especie, edad, y amigos (que es un array de objetos con propiedades nombre y especie). Luego extraer nombre, especie, y los nombres de los amigos.
+
+let shrekObject = {
+    friends : ['donakay', 'fiona', 'rex'],
+    race: ['donkay', 'ogre', 'dinosaur']
+}
+let {friends: friendsShrek2, race : raceShrek} = shrekObject
+console.log(friendsShrek2[0], raceShrek[0])
+console.log(friendsShrek2[1], raceShrek[1])
+console.log(friendsShrek2[2], raceShrek[2])
+
+// Ejercicio 2
+// Crear un objeto pelicula con las propiedades titulo, año, y personajes (que es un array de objetos con propiedades nombre, especie, y rol). Luego extraer el título de la película y los nombres de los personajes principales (aquellos cuyo rol sea 'principal').
+let film = {
+    title: 'Harry Potter',
+    year: 2015,
+    characters: [{name1: 'harry', race1:'human', rol:'principal'}, {name2: 'malfoy', race2:'human', rol:'secondary'}, {name3: 'Joaquin', race3:'human', rol:'principal'}]
+}
+let {title : titleFilm, characters: charactersFilm} = film
+let contentArrayCharactersFilm1 = charactersFilm[0]
+let contentArrayCharactersFilm2 = charactersFilm[1]
+let contentArrayCharactersFilm3 = charactersFilm[2]
+let rol1 = charactersFilm.filter(function(character){
+    return character.rol === 'principal'
+})
+console.log(titleFilm, rol1)
+
+// Ejercicio 3
+// Crear un objeto misiones con las propiedades titulo, año, y detalles (que es un objeto con propiedades misionPrincipal y misionSecundaria, ambos con propiedades descripcion y personajes (que es un array de nombres)). Luego extraer la descripción de la misión principal y los nombres de los personajes de la misión secundaria.
+let mission = {
+    titleMission: 'MakeLandingPage',
+    ageMission : 2 ,
+    detailsMission: {
+        principalMission: {descriptionMission: 'Descripcion', charactersMission: ['Leonardo', 'agstin']} ,
+        secondaryMission: {descriptionMission: 'Descripcion', charactersMission: ['Gabriel, JAvier']}
+    }
+}
+let {detailsMission:{principalMission:{descriptionMission: descriptionPrincipal}},  detailsMission:{secondaryMission:{charactersMission: charactersSecondary}}} = mission
+console.log(descriptionPrincipal, charactersSecondary)
+
+// Ejercicio 4
+// Crear un objeto evento con las propiedades nombre, fecha, y invitados (que es un array de objetos con propiedades nombre, especie, y confirmado (booleano)). Luego extraer el nombre del evento y los nombres de los invitados confirmados.
+let eventParty = {
+    eventName : 'Kapital',
+    eventDate: 'saturday',
+    eventGuests: [{nameGuest: 'Bauti', specieGuest: 'human', confirmedGuest: true}, {nameGuest: 'Lucas', specieGuest: 'human', confirmedGuest: false}, {nameGuest: 'Tomas', specieGuest: 'human', confirmedGuest: true}]
+}
+let {eventGuests: [{nameGuest:nombresConfirmados, confirmedGuest: confirmado}, {nameGuest:nombresConfirmados2, confirmedGuest: confirmado2}, {nameGuest:nombresConfirmados3, confirmedGuest: confirmado3}], eventName: nombreEvento} = eventParty
+let confirmadosResult = eventGuests.nombresConfirmados.filter(function(nombre){
+    if (eventGuests.confirmado === true){
+        return nombre
+    }
+})
+console.log('Nombre del evento: ' + nombreEvento)
+console.log('Nombres confirmados: ' + confirmadosResult)
