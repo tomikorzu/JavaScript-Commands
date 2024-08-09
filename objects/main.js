@@ -314,9 +314,6 @@ let film = {
     characters: [{name1: 'harry', race1:'human', rol:'principal'}, {name2: 'malfoy', race2:'human', rol:'secondary'}, {name3: 'Joaquin', race3:'human', rol:'principal'}]
 }
 let {title : titleFilm, characters: charactersFilm} = film
-let contentArrayCharactersFilm1 = charactersFilm[0]
-let contentArrayCharactersFilm2 = charactersFilm[1]
-let contentArrayCharactersFilm3 = charactersFilm[2]
 let rol1 = charactersFilm.filter(function(character){
     return character.rol === 'principal'
 })
@@ -341,12 +338,112 @@ let eventParty = {
     eventName : 'Kapital',
     eventDate: 'saturday',
     eventGuests: [{nameGuest: 'Bauti', specieGuest: 'human', confirmedGuest: true}, {nameGuest: 'Lucas', specieGuest: 'human', confirmedGuest: false}, {nameGuest: 'Tomas', specieGuest: 'human', confirmedGuest: true}]
+    
 }
-let {eventGuests: [{nameGuest:nombresConfirmados, confirmedGuest: confirmado}, {nameGuest:nombresConfirmados2, confirmedGuest: confirmado2}, {nameGuest:nombresConfirmados3, confirmedGuest: confirmado3}], eventName: nombreEvento} = eventParty
-let confirmadosResult = eventGuests.nombresConfirmados.filter(function(nombre){
-    if (eventGuests.confirmado === true){
-        return nombre
+let {eventGuests: invitados, eventName: nombreEvento} = eventParty
+let invitadoConfirmado = invitados.filter(function(invitado){
+    if (invitado.confirmedGuest === true){
+        return invitado.nameGuest
     }
 })
 console.log('Nombre del evento: ' + nombreEvento)
-console.log('Nombres confirmados: ' + confirmadosResult)
+console.log('Nombres confirmados: ', invitadoConfirmado)
+
+// Ejercicio 5
+// Crear un objeto banda con las propiedades nombre, genero, y miembros (que es un array de objetos con propiedades nombre, instrumento, y experiencia (en años)). Luego extraer el nombre del género y los instrumentos de los miembros con más de 5 años de experiencia.
+let banda ={
+    nombre : 'somoNosotro',
+    genero: 'guaracha',
+    miembros: [{nombreMiembro: 'laloDj', instrumento: 'teclado', experiencia: 2}, {nombreMiembro: 'gusty', instrumento: 'bateria', experiencia: 6}, {nombreMiembro: 'crisMj', instrumento: 'microfono', experiencia: 12}]
+}
+let {miembros: miembrosBanda, genero: generoBanda} = banda
+let bandaResult = miembrosBanda.filter(function(miembro){
+    if (miembro.experiencia >= 5){
+        return miembro.instrumento 
+    }
+})
+
+console.log('El genero es', generoBanda)
+console.log('Los instrumentos de los que tienen mas de 5 anios de experiencia son:', bandaResult)
+
+// Part 3
+// Ejercicio 1
+// Crear una función crearPareja que reciba dos objetos ogro y princesa y devuelva un nuevo objeto pareja combinando sus propiedades, renombrando nombre a nombreOgro y nombrePrincesa. Además, si la edad de cualquiera de ellos es mayor a 28, agregar un array misiones con una misión inicial.
+function crearPareja(ogro, princesa){
+    let {nombre: nombreOgro, edad: edadOgro} = ogro
+    let {nombre: nombreFiona, edad: edadFiona} = princesa
+    if (edadOgro >= 28 && edadFiona >= 28){
+        ogro.misiones = ['MisionInicial', 'MisionFinal']
+        return `${nombreOgro}, ${nombreFiona}, tienen como misiones: ${ogro.misiones}`
+    } else{
+        return `${nombreOgro}, ${nombreFiona}, no tienen como misiones`
+    }
+}
+console.log(crearPareja({nombre: 'Shrek', edad: 30}, {nombre: 'fiona', edad: 29}))
+
+// Ejercicio 2 ( no se hace )
+
+// Ejercicio 3
+// Crear una función unirPersonajes que reciba un array de objetos personajes y devuelva un nuevo objeto alianza con propiedades nombres (un array de los nombres de los personajes) y reinos (un array de los reinos de los personajes). Además, si cualquier personaje pertenece al reino 'Pantano', agregar 'Pantano' a un array lugaresImportantes.
+// Let personajes = [
+//     { nombre: 'Shrek', reino: 'Pantano' },
+//     { nombre: 'Fiona', reino: 'Duloc' },
+//     { nombre: 'Burro', reino: 'Pantano' }
+//   ];
+  
+function unirPersonajes(objetosPersonales){
+    let alianza = {
+        nombre: ['pinocho', 'lobo'],
+        reinos: ['pantano', 'duloc']
+    }
+    let {nombre:nombreAliado, reinos: reinoAliado} = alianza
+    if (reinoAliado.includes('pantano')){
+        objetosPersonales.lugaresImportantes = ['pantano']
+    }
+    return `Los aliados son ${nombreAliado}, que vienen de los reinos: ${reinoAliado} y el lugar importante es: ${objetosPersonales.lugaresImportantes}`
+     
+}
+console.log(unirPersonajes({nombre : 'shrek', reino: 'pantano'}, {nombre : 'fiona', reino: 'duloc'}, {nombre : 'burro', reino: 'pantano'}))
+
+// Ejercicio 4
+// Crear una función resumenPersonajes que reciba un array de objetos personajes donde cada objeto tiene una propiedad info que a su vez es un objeto con propiedades nombre, edad, y reino. Devuelve un nuevo objeto resumen con propiedades nombres (array de nombres) y edadesMayores (array de edades mayores a 30). Si algún personaje tiene edad mayor a 40, agregar 'mayoresDe40' a un array categorias.
+// Let personajes = [
+//     { info: { nombre: 'Shrek', edad: 35, reino: 'Pantano' } },
+//     { info: { nombre: 'Fiona', edad: 28, reino: 'Duloc' } },
+//     { info: { nombre: 'Rey Harold', edad: 45, reino: 'Far Far Away' } }
+//   ];
+
+let personajes = [
+    { info: { nombre: 'Shrek', edad: 35, reino: 'Pantano' } },
+    { info: { nombre: 'Fiona', edad: 28, reino: 'Duloc' } },
+    { info: { nombre: 'Rey Harold', edad: 45, reino: 'Far Far Away' } }
+  ]
+
+function resumenPersonajes(personajes){
+    let nombres = personajes.map(function(personaje){
+        return personaje.info.nombre
+    })
+    let personajesMayoresA30 = personajes.filter(function(personaje){
+        return personaje.info.edad  >= 30
+    })
+
+    let edades = personajesMayoresA30.map(function(personaje){
+        let edad = personaje.info.edad
+        return edad
+    })
+    
+    console.log(edades)
+    // let edadesMayoresA30 =  edadesTotales.filter(function(personaje){
+    //     return personaje >= 30 
+    // })
+    // return edadesMayoresA30
+    
+    // let edadesMayores
+    // let masDe40
+    // let categorias = {
+    //     nombres: [nombresMayores],
+    //     edades: [edadesMayores],
+    //     mayoresDe40: [masDe40]
+    // }
+}
+console.log(resumenPersonajes(personajes))
