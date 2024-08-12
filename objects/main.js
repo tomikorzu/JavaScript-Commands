@@ -413,37 +413,202 @@ console.log(unirPersonajes({nombre : 'shrek', reino: 'pantano'}, {nombre : 'fion
 //     { info: { nombre: 'Rey Harold', edad: 45, reino: 'Far Far Away' } }
 //   ];
 
-let personajes = [
+function resumenPersonajes(objetosPersonajes){
+    let nombres = objetosPersonajes.map(function(objeto) {
+        return objeto['info']['nombre'];
+    });
+
+    let edades = objetosPersonajes.map(function(objeto){
+        return objeto['info']['edad']
+    })
+
+    let edadesMayores = edades.filter(function(edad){
+        return edad >= 30
+    })
+
+    let edadesMayores40 = edades.filter(function(edad){
+        return edad >= 40
+    })
+
+    return resumenPropiedades = {
+        nombres: nombres,
+        edadesMayoresDe30: edadesMayores,
+        categorias: edadesMayores40
+    }
+}
+console.log(resumenPersonajes([
     { info: { nombre: 'Shrek', edad: 35, reino: 'Pantano' } },
     { info: { nombre: 'Fiona', edad: 28, reino: 'Duloc' } },
-    { info: { nombre: 'Rey Harold', edad: 45, reino: 'Far Far Away' } }
-  ]
+    { info: { nombre: 'Rey Harold', edad: 45, reino: 'Far Far Away' } }]))
 
-function resumenPersonajes(personajes){
-    let nombres = personajes.map(function(personaje){
-        return personaje.info.nombre
-    })
-    let personajesMayoresA30 = personajes.filter(function(personaje){
-        return personaje.info.edad  >= 30
-    })
 
-    let edades = personajesMayoresA30.map(function(personaje){
-        let edad = personaje.info.edad
-        return edad
-    })
-    
-    console.log(edades)
-    // let edadesMayoresA30 =  edadesTotales.filter(function(personaje){
-    //     return personaje >= 30 
-    // })
-    // return edadesMayoresA30
-    
-    // let edadesMayores
-    // let masDe40
-    // let categorias = {
-    //     nombres: [nombresMayores],
-    //     edades: [edadesMayores],
-    //     mayoresDe40: [masDe40]
-    // }
+
+// Parte 4
+// Ejercicio 1
+// Crea una función agregarHobbies que reciba dos objetos persona y nuevosHobbies. El objeto persona tiene propiedades nombre, edad, y hobbies (un array de hobbies). El objeto nuevosHobbies tiene una propiedad hobbies que también es un array de nuevos hobbies. Usa el spread operator para combinar el array hobbies de persona con el array hobbies de nuevosHobbies en un nuevo objeto personaActualizada. Devuelve personaActualizada.
+
+function agregarHobbies(persona, nuevosHobbies){
+    let {nombre, edad, hobbies: hobbiesAntiguos} = persona
+
+    let {nuevosHobbies: hobbie} = nuevosHobbies
+
+    let hobbiesDePersona = [...hobbiesAntiguos, ...hobbie]
+
+    return personaActualizada = {
+        nombre: nombre,
+        edad: edad,
+        hobbiesActualizados: hobbiesDePersona
+    }
 }
-console.log(resumenPersonajes(personajes))
+console.log(agregarHobbies(
+    {nombre: 'Tomas', edad: 18, hobbies: ['Futbol', 'esquiar']},
+    {nuevosHobbies: ['Programar'] } ))
+    
+// Ejercicio 2
+// Crea una función actualizarDatos que reciba dos objetos datosPersonales y datosContacto. El objeto datosPersonales tiene propiedades nombre y edad, y el objeto datosContacto tiene propiedades direccion y telefono. Usa el spread operator para combinar ambos objetos en un nuevo objeto informacionCompleta. Devuelve informacionCompleta.
+function actualizarDatos(datosPersonales, datosContacto){
+    return informacionCompleta = {...datosPersonales, ...datosContacto}
+    // return informacionCompleta
+}
+console.log(actualizarDatos(
+    {nombre: 'tomas', edad: 18}, 
+    {direccion: 'ruy diaz', telefono: '1234-1234'}))
+
+// Ejercicio 3
+// Crea una función agregarCaracteristicas que reciba dos objetos vehiculo y caracteristicas. El objeto vehiculo tiene propiedades marca y modelo, y el objeto caracteristicas tiene propiedades color y tipo. Usa el spread operator para combinar estos objetos en un nuevo objeto vehiculoCompleto. Devuelve vehiculoCompleto, agregando las propiedades de caracteristicas solo si el color es 'rojo'.
+
+function agregarCaracteristicas (vehiculo, caracteristicas){
+    let vehiculoCompleto
+    let {color} = caracteristicas
+    if (color === 'rojo'){
+        vehiculoCompleto = {...vehiculo, ...caracteristicas}
+    } else{
+        vehiculoCompleto = {...vehiculo}
+    }
+    return vehiculoCompleto
+}
+console.log(agregarCaracteristicas(
+    {marca: 'volkswagen', modelo: 'tiguan'},
+    {color: 'gris oscuro', tipo: 'camioneta'}
+))
+
+// Ejercicio 4
+// Crea una función eliminarTelefono que reciba un objeto persona y elimine explícitamente la propiedad telefono del objeto. Usa el spread operator para crear un nuevo objeto personaSinTelefono que contenga todas las propiedades del objeto original persona excepto telefono. Devuelve personaSinTelefono.
+function eliminarTelefono(persona){
+    let { telefono, ...personaSinTelefono } = persona
+    return personaSinTelefono
+}
+console.log(eliminarTelefono(
+    {nombre: 'tomas', edad: 18, direccion: 'ruy diaz', telefono: '1234-1234'}
+))
+
+// Parte 5
+// Ejercicio 1
+// Crea una función combinacionPersonajes que reciba dos objetos personajes1 y personajes2, donde personajes1 tiene propiedades nombre y habilidades (un array de habilidades), y personajes2 tiene propiedades nombre y atributos (un objeto con fuerza y destreza). Usa el spread operator para combinar habilidades y atributos en un solo objeto informacion, y devuelve un nuevo objeto con el nombre y el objeto informacion combinado.
+function combinacionPersonajes(personajes1, personajes2){
+    let {nombre, habilidades} = personajes1
+    let {nombre: nombre2, atributos} = personajes2
+    let {fuerza, destreza} = atributos
+    let informacion = {fuerza, destreza, habilidades}
+    return {
+        nombres: nombre + ' y ' + nombre2,
+        informacionCombinada: informacion
+    }
+}
+console.log(combinacionPersonajes(
+    { nombre: 'Tomas', habilidades: ['Programar', 'Escribir'] },
+    { nombre: 'Juan', atributos: { fuerza: 10, destreza: 15 } }
+));
+
+// ejercicio 2
+// Crea una función combinarClientes que reciba dos objetos cliente1 y cliente2, donde cliente1 tiene propiedades nombre y datos (un objeto con edad y direccion), y cliente2 tiene propiedades nombre y informacion (un objeto con telefono y email). Usa el spread operator para combinar datos y informacion en un solo objeto perfilCompleto, y devuelve un nuevo objeto con el nombre y el objeto perfilCompleto.
+function combinarClientes (cliente1, cliente2){
+    let {nombre, datos} = cliente1
+    let {informacion} = cliente2
+    let perfilCompleto = {...datos, ...informacion}
+    return {
+        nombre: nombre,
+        perfilCompleto
+    }
+}
+console.log(combinarClientes(
+    {nombre: 'pedro', datos: {edad: 25, direccion: 'moreno'}},
+    {nombre2: 'Jose', informacion: {telefono: '1234-1234', email:'pedro@.com'}}
+))
+
+// Ejercicio 3
+// Crea una función actualizarPerfil que reciba dos objetos usuario y detalles. El objeto usuario tiene propiedades nombre, edad, y colorFavorito, y el objeto detalles tiene propiedades direccion y telefono. Usa el spread operator para devolver un usuario con nombre, color favorito solo si es morado, direccion y telefono de detalles, pero solo si la edad del usuario es mayor de 25. Si la edad es 25 o menor, establece valores predeterminados para direccion y telefono en el objeto resultante.
+function actualizarPerfil(usuario, detalles) {
+    let { nombre, edad, colorFavorito } = usuario
+    let { direccion, telefono } = detalles
+
+    let direccionDefault = 'No disponible'
+    let telefonoDefault = 'No disponible'
+
+    if (edad > 25) {
+        if (colorFavorito === 'morado') {
+            return {
+                nombre,
+                colorFavorito,
+                direccion,
+                telefono
+            }
+        } else {
+            return {
+                nombre,
+                direccion,
+                telefono
+            }
+        }
+    } else {
+        if (colorFavorito !== 'morado') {
+            return {
+                nombre,
+                direccion: direccionDefault,
+                telefono: telefonoDefault
+            }
+        } else {
+            return {
+                nombre,
+                direccion: direccionDefault,
+                telefono: telefonoDefault
+            }
+        }
+    }
+}
+
+console.log(actualizarPerfil(
+    { nombre: 'Roman', edad: 26, colorFavorito: 'morado' },
+    { direccion: 'Ruy', telefono: '1234-1234' }
+))
+
+
+// Ejercicio 4
+// Crea una función actualizarInfo que reciba dos objetos usuario y detalles, y un array de palabrasClave. El objeto usuario tiene propiedades nombre, edad, y colorFavorito, y el objeto detalles tiene propiedades direccion, telefono, y ocupacion. El array palabrasClave contiene una lista de palabras que pueden estar presentes en el campo colorFavorito de usuario. Usa el spread operator para actualizar el objeto usuario con direccion, telefono, y ocupacion de detalles solo si el colorFavorito de usuario está presente en palabrasClave. Si el colorFavorito no está en palabrasClave, establece valores predeterminados para direccion, telefono, y ocupacion. Devuelve el objeto usuarioActualizado.
+function actualizarInfo(usuario, detalles, palabrasClave){
+    let {nombre, edad, colorFavorito} = usuario
+    let {direccion, telefono, ocupacion} = detalles
+    let {...usuarioInfo} = usuario
+    let {...usuarioDetalles} = detalles
+    let palabraResult = palabrasClave.some(function(palabra){
+        return palabra === colorFavorito
+    })
+    if (palabraResult === true){
+        return {...usuarioInfo, ...usuarioDetalles}
+    } else{
+        let predeterminados = {
+            direccion: 'predeterminado',
+            telefono: 'predeterminado',
+            ocupacion: 'predeterminado'
+        }
+        return {...usuarioInfo, ...predeterminados}
+    }
+    console.log(palabraResult)
+}
+
+console.log(actualizarInfo(
+    {nombre: 'tomas', edad: 18, colorFavorito: 'rojo'},
+    {direccion: 'miami', telefono: '1234-1234', ocupacion: 'programador'},
+    ['amarillo', 'azul', 'rojo']
+))
+
