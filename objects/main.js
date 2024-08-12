@@ -670,17 +670,31 @@ console.log(precioFinal)
 // const employees = { "John": 4500, "Jane": 7000, "Mike": 3000, "Alice": 5500, "Bob": 4800 }; 
 // Resultado esperado: ["Jane", "Alice"]
 
-const employees = { "John": 4500, "Jane": 7000, "Mike": 3000, "Alice": 5500, "Bob": 4800 }
+let employeesEjercicio5 = { "John": 4500, "Jane": 7000, "Mike": 3000, "Alice": 5500, "Bob": 4800 }
 
-let sueldosMayoresA5000 = Object.entries(employees)
-    .filter(function([empleado, dinero]){
-        return dinero > 5000
-    })
-    .map(function([empleado, dinero]){
-        return empleado
-    })
 
-console.log(sueldosMayoresA5000)
+let empleadoResult = Object.keys(employeesEjercicio5).filter(function(e){
+    return employeesEjercicio5[e] > 5000
+})
+console.log('i',empleadoResult)
+
+// let empleados = Object.keys(employees)
+// let salarios = Object.values(employees).filter(function(salario){
+//     if (salario > 5000){
+//         return empleados
+//     }
+// })
+// console.log(salarios)
+
+// let sueldosMayoresA5000 = Object.entries(employees)
+//     .filter(function([empleado, dinero]){
+//         return dinero > 5000
+//     })
+//     .map(function([empleado, dinero]){
+//         return empleado
+//     })
+
+// console.log(sueldosMayoresA5000)
 
 // Ejercicio 6
 // Tienes un objeto donde las claves son nombres de productos y los valores son descripciones. Usa Object.keys para crear un nuevo objeto que contenga el nombre del producto y el número de caracteres en la descripción.
