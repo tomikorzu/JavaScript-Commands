@@ -724,3 +724,39 @@ function colorExiste(valor, key){
     })
 }
 console.log(colorExiste('salmon', 'nombre'))
+
+//TP final
+
+//Eres un joven Padawan en el universo de Star Wars, y tu tarea es crear un sistema para gestionar los Jedi en la Orden Jedi. Necesitas construir un array de objetos que represente a los Jedi, donde cada objeto debe contener la información básica de un Jedi. Cada Jedi debe tener una clave única (id) para identificarlo de forma exclusiva. 
+//Cada objeto Jedi debe tener las siguientes propiedades:
+// id: un identificador único para el Jedi (número o string)
+// nombre: el nombre del Jedi (string)
+// nivel: el nivel de habilidad del Jedi (string), puede ser "Padawan", "Caballero" o "Maestro"
+// especialidad: la especialidad del Jedi (string), por ejemplo, "Uso de la Fuerza", "Combate con sable de luz", etc.
+// habilidades: un array de strings con todas las habilidades del Jedi ("Telequinesis", "Sable de Luz")
+//Luego, implementa las siguientes funciones (Debes nombrar las funciones adecuadamente):
+// Se quieren agregar nuevos Jedi al array si aún no existen, basándose en la clave única id.
+// Se quiere actualizar la información de un Jedi ya existente usando filtrado por la clave id.
+// Se quiere obtener un array con todos los Jedi de tipo “Maestros”
+// Se quiere obtener un array con todos los Jedi que cumplan con el nivel pasado por parámetro. Se debe verificar que el nivel sea “Padawan”, “Caballero” o “Maestro”
+// Se quieren agregar habilidades nuevas a un Jedi existente. Verificar que el jedi exista y que las habilidades nuevas no existan dentro del Jedi.
+// Se quiere eliminar un jedi por id
+// Se quieren comparar los niveles entre dos Jedi, devuelva un objeto con los nombres y los niveles de los Jedi, y cual de los dos es el más fuerte
+
+
+let jedis = [
+    {
+        id: j1,
+        nombre: 'Yoda',
+        nivel: 'Maestro',
+        especialidad: 'Uso de fuerza',
+        habilidades: ['telequinesis', 'sabiduria']
+    },
+    {
+        id: 'j2',
+        nombre: 'Luke Skywalker',
+        nivel: 'Caballero',
+        especialidad: 'Combate con sable de luz',
+        habilidades: ['Telequinesis', 'Sable de Luz']
+    }
+]
