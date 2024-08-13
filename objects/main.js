@@ -746,17 +746,155 @@ console.log(colorExiste('salmon', 'nombre'))
 
 let jedis = [
     {
-        id: j1,
+        id: 'j1',
         nombre: 'Yoda',
-        nivel: 'Maestro',
+        nivel: 'maestro',
         especialidad: 'Uso de fuerza',
         habilidades: ['telequinesis', 'sabiduria']
     },
     {
         id: 'j2',
         nombre: 'Luke Skywalker',
-        nivel: 'Caballero',
+        nivel: 'caballero',
         especialidad: 'Combate con sable de luz',
         habilidades: ['Telequinesis', 'Sable de Luz']
     }
 ]
+
+function agregarJedi(jedis, id) {
+    let exists = jedis.some(function(jedi){
+        return jedi.id === id;
+    })
+    
+    if (!exists) {
+        let newJedi = {
+            id: id,
+            nombre: 'nombreNuevoJedi',
+            nivel: 'nivelNuevoJedi',
+            especialidad: 'especialidadNuevoJedi',
+            habilidades: ['habilidadNuevoJedi', 'habilidadNuevoJedi2']
+        }
+        jedis.push(newJedi)
+    }
+    
+    return jedis
+}
+console.log('checkeo de funcion agregarJedi')
+console.log(agregarJedi(jedis, 'j1'))
+// console.log(agregarJedi(jedis, 'j4'))
+// console.log(agregarJedi(jedis, 'j4')) 
+
+console.log('checkeo de funcion actualizarJedi')
+function actualizarJedi(jedis, id, actualizo) {
+    let exists = jedis.some(function(jedi) {
+        return jedi.id === id
+    })
+    if (exists) {
+        jedis = jedis.map(function(jedi) {
+            if (jedi.id === id) {
+                return {
+                    ...jedi,
+                    ...actualizo
+                }
+            }
+            return jedi
+        })
+    }
+    return jedis
+}
+console.log(actualizarJedi(jedis, 'j1', {
+    nombre: 'Yoda Actualizado',
+    nivel: 'maestro actualizado',
+    especialidad: 'Nueva Especialidad',
+    habilidades: ['telequinesis', 'sabiduría', 'nueva habilidad']
+}))
+
+console.log('checkeo obtenerMaestros')
+function obtenerMaestros(jedis){
+    return jedis.filter(function(jedi){
+        return jedi.nivel === 'maestro' || jedi.nivel === 'maestro actualizado'
+    })
+}
+console.log(obtenerMaestros(jedis))
+
+console.log('Checkeo obtenerPorNivel')
+function obtenerPorNivel(jedis, nivel){
+    return jedis.filter(function(jedi){
+        return jedi.nivel === nivel
+    })
+}
+console.log(obtenerPorNivel(jedis, 'Caballero'))
+
+
+console.log('Checkeo agregarHabilidades')
+
+function agregarHabilidades(jedis, id, habilidadesNuevas) {
+    let exist = jedis.some(function(jedi) {
+        return jedi.id === id
+    })
+    if (!exist) {
+        return 'El id no existe'
+    } else {
+        return jedis.map(function(jedi) {
+            if (jedi.id === id) {
+                let habilidades = Object.values(jedi.habilidades)
+                habilidadesNuevas.map(function(habilidad) {
+                    if (!habilidades.includes(habilidad)) {
+                        habilidades.push(habilidad)
+                    }
+                })
+                jedi.habilidades = habilidades
+            }
+            return jedi
+        })
+    }
+}
+
+console.log(agregarHabilidades(jedis, 'j1', ['comer', 'dormir']))
+
+console.log('Checkeo eliminarJedi')
+function eliminarJedi(jedis, id){
+    return jedis.filter(function(jedi) {
+        return jedi.id !== id
+    })
+}
+console.log(eliminarJedi(jedis, 'j2'))
+
+
+console.log('Checkeo compararNiveles')
+function compararNiveles(jedis, id1, id2){
+    let jedi1 = jedis.find(function(jedi){
+        return jedi.id === id1
+    })
+    let jedi2 = jedis.find(function(jedi){
+        return jedi.id === id2
+    })
+    if (!jedi1 || !jedi2){
+        return 'Algun id o ambos, no existen'
+    }
+    let niveles = ['pawadan', 'caballero', 'maestro']
+    let niveles1 = niveles.indexOf(jedi1.nivel)
+    let niveles2 = niveles.indexOf(jedi2.nivel)
+
+    let resultado = {
+        jedi1: {
+            nombre: jedi1.nombre,
+            nivel: jedi1.nivel
+        },
+        jedi2: {
+            nombre: jedi2.nombre,
+            nivel: jedi2.nivel
+        }
+    }
+
+    if (niveles1 > niveles2){
+        resultado.masFuerte =  jedi1.nombre
+    } else if (niveles2 > niveles1){
+        resultado.masFuerte = jedi2.nombre
+    } else{
+        resultado.masFuerte = 'Empate'
+    }
+    return resultado
+
+}
+console.log(compararNiveles(jedis, 'j1', 'j2'))
