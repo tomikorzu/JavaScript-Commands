@@ -134,3 +134,204 @@ do {
 } while (i < 20)
 // console.log('En total de los numeros pares son: ' + contadorPar)
 // console.log('En total de los numeros pares son: ' + contadorImpar)
+
+
+//Clase 2
+
+// Ejercicio 1
+// Escribe una función que reciba un array de calificaciones y calcule el promedio usando un
+// bucle while. La función debe devolver el promedio y mostrarlo en la consola
+
+console.log('Ejercicio 1')
+function calcularPromedio (calif){
+    let contador = 0
+    let promedio = 0
+    while (contador < calif.length){
+        promedio += calif[contador]
+        contador++
+    }
+    return promedio / contador
+}
+console.log(calcularPromedio([5,10,2]))
+
+// Ejercicio 2
+// Verificar Correos Electrónicos: Escribe una función llamada verificarUsuario que
+// reciba un array de nombres de usuario y un nombre de usuario específico. Usa un bucle while
+// para verificar si el usuario específico está en la lista. Si el usuario existe, muestra un mensaje
+// indicando "Usuario encontrado", de lo contrario, muestra "Usuario no encontrado".
+// let usuarios = ["juan", "maria", "admin", "carlos"];
+// let usuarioBuscado = "admin";
+
+console.log('Ejercicio 2')
+function verificarUsuario(nombresUsuario, nombre){
+    let contador = 0
+    let existe = false
+    while (contador !== nombresUsuario.length){
+        contador++
+        console.log(contador)
+        if (nombresUsuario[contador - 1] === nombre){
+            existe = true
+        } 
+    } 
+    if (existe){
+        return 'Usuario encontrado'
+    } else{
+        return 'Usuario no encontrado'
+    }
+}
+console.log(verificarUsuario(['Tomas', 'Federico', 'Mati'], 'Mati'))
+
+
+// Ejercicio 3
+// Verificar Longitud de Contraseñas: Escribe una función llamada
+// verificarContraseñas que reciba un array de contraseñas. Usa un bucle while para
+// verificar cuántas contraseñas tienen al menos 8 caracteres. Muestra un mensaje indicando
+// cuántas contraseñas cumplen con esta condición.
+// let contraseñas = ["password", "1234567", "supersecret", "contraseña123"];
+
+console.log('Ejercicio 3')
+function verificarContraseñas(contraseñas){
+    let contador = 0
+    let aprobado = 0
+    while (contador < contraseñas.length){
+        contador++
+        if(contraseñas[contador - 1].length >= 8){
+            aprobado++
+        }
+    }
+    return aprobado
+}
+console.log(verificarContraseñas(["12345678", "12345678", "12345678", "12345678"]))
+
+// Ejercicio 4
+// Verificar Existencia de un Usuario: Crea una función llamada verificarCorreos que
+// reciba un array de correos electrónicos. Usa un bucle `while` para recorrer el array y verificar
+// que cada correo contenga un "@" y un ".". Si todos los correos son válidos, muestra "Todos los
+// correos son válidos", de lo contrario, muestra "Correo inválido encontrado".
+// let correos = ["correo1@example.com", "correo2@example", "correo3@example.com"];
+
+console.log('Ejercicio 4')
+function verificarCorreos(correos){
+    let contador = 0
+    let valido = 0
+    while (contador < correos.length){
+        contador++ 
+        if(correos[contador - 1].includes('@') && correos[contador - 1].includes('.')){
+            valido++
+        }
+    }
+    
+    return (valido === 3) ? 'Todos los correos son validos' : 'Hay un correo invalido'
+}
+console.log(verificarCorreos(["correo@1exa.mplecom", "correo2ex@.ample", "correo3ex@ample.com"]))
+
+
+// Ejercicio 5
+// Escribe una función que reciba un número y determine si es primo usando un bucle do
+// while. La función debe devolver un valor booleano indicando si el número es primo y mostrar
+// el resultado en la consola.
+
+console.log('Ejercicio 5')
+
+function recibirNumero(numero){
+    let i = 2
+    let valido= true
+    do {
+        if (numero === 2 ){
+            valido = true
+            
+        } else if(numero % i === 0){
+            valido = false
+        }
+        i++
+    } while(i < numero && valido)
+
+    return valido
+}
+console.log(recibirNumero(11))
+
+// Ejercicio 6
+// Contar Cantidad de Comentarios : Escribe una función llamada contarComentarios
+// que reciba un array de comentarios. Cada comentario es un string. La función debe usar un
+// bucle while para contar cuántos comentarios hay en la lista y mostrar el total en la consola.
+console.log('Ejercicio 6')
+function contarComentarios(comentarios){
+    let contador = 0
+    let contadorCaracteres = 0
+    while (contador < comentarios.length){
+        contador++
+        contadorCaracteres+= comentarios[contador - 1].length
+    }
+    return contadorCaracteres
+}
+console.log(contarComentarios(['Hola', 'Mi nbre es tomas', 'Dale boca']))
+
+// PARTE 2
+
+// Ejercicio 1
+// Escribe una función llamada contarGoles que reciba un array de goles anotados en un
+// partido. Cada elemento del array es un objeto que tiene dos propiedades: equipo y jugador.
+// Usa un bucle while para recorrer el array y contar cuántos goles anotó cada equipo.
+console.log('Ejercicio 1')
+function contarGoles(goles){
+    let contador = 0
+    let contadorGoles1 = 0
+    let contadorGoles2 = 0
+    while (contador < goles.length){
+        if (goles[contador].equipo === 'red'){
+            contadorGoles1++
+        } else{
+            contadorGoles2++
+        }
+        contador++
+    }
+    return `El equipo red hizo: ${contadorGoles1} goles, y el azul hizo: ${contadorGoles2}`
+}
+console.log(contarGoles([
+    {equipo:'red',jugador:'messi'},
+    {equipo:'blue', jugador:'ronaldo'},
+    {equipo:'red',jugador:'messi'},
+]))
+
+// Ejercicio 2
+// Crea una función llamada contarToques que reciba un array con el nombre de los
+// jugadores que tocan el balón en una jugada. Usa un bucle while para contar cuántos
+// toques hubo antes de que el balón saliera del campo. La jugada termina cuando encuentres
+// el string "fuera" en el array.
+console.log('Ejercicio 2')
+function contarToques(nombres){
+    let contador = 0
+    while (nombres[contador] !== 'fuera'){
+        contador++
+    }
+    return `La cantidad total de toques es: ${contador}`
+}
+console.log(contarToques(["Messi", "Di Maria", "Doye", "s", "s", 'fuera']))
+
+// Ejercicio 3
+// Escribe una función llamada practicarSaques que simule los intentos de un jugador
+// de voleibol para hacer un saque exitoso. Usa un bucle do while para que el jugador siga
+// intentando hasta que consiga hacer un saque exitoso. Usa
+// Math.random() para simular si el saque fue exitoso (considerando que la probabilidad de
+// éxito es del 30%
+console.log('Ejercicio 3')
+let porcentaje = 0
+function practicarSaques(porcentaje){
+    let contador= 0
+    do{
+        porcentaje = Math.floor(Math.random() * 100)
+        console.log(porcentaje)
+        contador++
+    } while (porcentaje < 30)
+    console.log(`En total hizo ${contador}, y el mejor saque fue ${porcentaje}%`)
+}
+practicarSaques(porcentaje)
+
+// Ejercicio 4
+// Desde la terna arbitral de la AFA, el presidente Chiqui Mafia nos envía una lista con los
+// jugadores que anotaron goles en un partido. Escribe una función llamada
+// recuentoGoleadores que reciba una lista de jugadores que anotaron goles. Usa un bucle
+// do while para contar cuántos jugadores ÚNICOS anotaron al menos un gol, y muestra el
+// resultado en la consola.
+// Ej del array: let jugadoresQueAnotaron = ["Messi", "Di Maria", "Messi", "Riquelme",
+// "Maradona"];
