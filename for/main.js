@@ -209,8 +209,16 @@ console.log(buscarMejorPrograma(
 // y un booleano tienePracticas que indica si incluye prácticas. Usa for para recorrer
 // las materias, continue para saltar las materias sin prácticas, y break si encuentras 3
 // materias con prácticas. Muestra en la consola cuántas materias con prácticas encontró
+console.log('Ejercicio 8')
 function contarMateriasConPracticas(alumno){
-    
+    let nombres = []
+    let guardoArrayMaterias = []
+    for (i = 0; i < alumno.materias.length; i++){
+        nombres.push(alumno.materias[i].nombre)
+        guardoArrayMaterias.push(alumno.materias[i].tienePracticas)
+    }
+    console.log(nombres)
+    console.log(guardoArrayMaterias)
 }
 console.log(contarMateriasConPracticas(
     {
