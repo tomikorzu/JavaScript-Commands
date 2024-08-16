@@ -214,11 +214,16 @@ function contarMateriasConPracticas(alumno){
     let nombres = []
     let guardoArrayMaterias = []
     for (i = 0; i < alumno.materias.length; i++){
+        if (alumno.materias[i].tienePracticas=== false){
+            continue
+        }
         nombres.push(alumno.materias[i].nombre)
         guardoArrayMaterias.push(alumno.materias[i].tienePracticas)
+        if (guardoArrayMaterias.length === 3){
+            break
+        }
     }
-    console.log(nombres)
-    console.log(guardoArrayMaterias)
+    console.log(`Las 3 materias con practicas son: ${nombres}`)
 }
 console.log(contarMateriasConPracticas(
     {
@@ -226,10 +231,150 @@ console.log(contarMateriasConPracticas(
         materias: [
           { nombre: 'Matemáticas', tienePracticas: false },
           { nombre: 'Química', tienePracticas: true },
-          { nombre: 'Historia', tienePracticas: false },
+          { nombre: 'Historia', tienePracticas: true },
           { nombre: 'Biología', tienePracticas: true },
           { nombre: 'Física', tienePracticas: true }
         ]
       }
 ))
 
+// Ejercicio 9
+// Tienes una lista de canales de TV argentinos, y quieres saber si uno de tus canales
+// favoritos está en esa lista. Escribe una función buscarCanalFavorito que reciba un
+// array de canales y un array de favoritos. Usa for para recorrer los canales,
+// continue para saltar los que no están en la lista de favoritos, y break si encuentras
+// uno de tus canales favoritos. Muestra en la consola el nombre del canal encontrado o
+// un mensaje indicando que no está en la lista.
+console.log('Ejercicio 9')
+function buscarCanalFavorito(canales, favoritos){
+    let result = []
+    for(let i = 0; i < canales.length; i++){
+        if (!favoritos.includes(canales[i])){
+            continue
+        }
+        return canales[i]
+    }
+    return 'Canal no encontrado'
+
+}
+console.log(buscarCanalFavorito(
+    ['El trece', 'Telefe', 'Disney'], ['Telefe', 'cartoon', 'Disney']
+))
+
+
+// PARTE 3
+// Ejercicio 1
+// Crea una función que reciba un número como parámetro y genere la tabla de multiplicar
+// para ese número, desde 1 hasta 10. La función debe imprimir los resultados en la
+// consola en el formato adecuado
+console.log('Ejercicio 1')
+function tablaMultiplicados(numero){
+    let multiplicacion
+    let result = []
+    for (let i = 1; i <= 10; i++){
+        multiplicacion = numero * i
+        result.push(multiplicacion)
+    }
+    return result
+}
+console.log(tablaMultiplicados(6))
+
+// Ejercicio 2
+// Estás desarrollando el nuevo instagram. Decidiste agregar una función que invierte los
+// mensajes, para que los usuarios puedan mandar mensajes ‘cifrados’, y así estar en la
+// onda.
+// Entrada:
+// Crea una función que reciba un mensaje de texto como parámetro. El mensaje puede
+// contener letras, números, espacios y otros caracteres.
+// Proceso:
+// 1. Recorrer el mensaje de texto desde el último carácter hasta el primero’
+// 2. Utilizar un bucle for para armar la nueva cadena invertida.
+// 3. Asegurarte de que la función maneje bien todos los caracteres del mensaje
+// Salida:
+// La salida debe ser una nueva cadena de texto que representa el mensaje original
+// invertido, lista para confundir a tus amigos en un asado o en la previa del partido.
+// Ejemplo de salida para la entrada "Che, ¿vamos a la cancha?": "?ahcnac al
+// a somav¿ ,ehC".
+console.log('Ejercicio 2')
+function recibirMensaje(mensaje){
+    let mensajeAlReves = ''
+    for(let i = mensaje.length - 1;  i >= 0; i--){
+        mensajeAlReves += mensaje[i]
+    }
+    return mensajeAlReves
+}
+console.log(recibirMensaje(
+    'Hola soy tomas 1234'
+))
+
+// ejercicio 3
+// En una noche de Clash Royale con tus amigos, cada uno puntúa las jugadas más
+// épicas. Usa una función para encontrar el puntaje más alto y coronar al “Genio
+// Montapuercos” de la noche. La función debe aceptar un array de números, que pueden
+// ser enteros o decimales.
+// a) Proceso:
+// ○ Recorrer el array de números para identificar el valor máximo.
+// ○ Utilizar un bucle for para comparar cada número con el valor máximo
+// encontrado hasta el momento.
+// ○ Asegurarse de que la función maneje adecuadamente los números
+// dentro del array, incluso si hay valores negativos o decimales.
+// b) Salida:
+// La salida debe ser el valor máximo encontrado en el array.
+// Ejemplo de salida para la entrada [3, 5, 7, 2, 8]: 8.
+console.log('Ejercicio 3')
+function encontrarPuntajeMaximo(puntajes){
+    let maximo = puntajes[0]
+    for(let i = 1; i < puntajes.length; i++){
+        if(puntajes[i] > maximo){
+            maximo = puntajes[i]
+        }
+    }
+    return maximo
+}
+
+console.log(encontrarPuntajeMaximo([3, 5, 7, 2, 8]))
+
+// Ejercicio 4
+// Como desarrollador del juego FIFA, estás añadiendo una funcionalidad para mostrar el
+// promedio de calificaciones de los jugadores usando estrellas (*) en la página web. Cada
+// estrella representará una unidad del promedio redondeado al entero más cercano, con
+// un máximo de 5 estrellas.
+// Requisitos:
+// a) Entrada:
+// ○ La función debe recibir un array de calificaciones, donde cada calificación
+// es un número entre 1 y 5. Algunos valores pueden ser null o mayores a
+// 5, y deben ser ignorados.
+// b) Proceso:
+// ○ Recorre el array de calificaciones y calcula el promedio de las
+// calificaciones válidas.
+// ○ Redondea el promedio al número entero más cercano.
+// ○ Usa un bucle for para construir una cadena de estrellas (*). La cantidad
+// de estrellas debe coincidir con el promedio redondeado, hasta un máximo
+// de 5 estrellas.
+// c) Salida:
+// ○ La salida debe ser una cadena de asteriscos (*) que representa el
+// promedio redondeado.
+// ○ Ejemplo de salida para la entrada [3, 1, 4, 5, 2]: *** (3 estrellas).
+// ○ Ejemplo de salida para la entrada [4, 3, 5, 2, 4]:**** (4
+// estrellas).
+// ○ Ejemplo de salida para la entrada [4, 6, null, 2, 4]: *** (3
+// estrellas).
+console.log('Ejercicio 4')
+function mostrarPromedioEstrellas(calificaciones){
+    let suma = 0
+    let count = 0
+    for(let i = 0; i < calificaciones.length; i++){
+        if(calificaciones[i] >= 1 && calificaciones[i] <= 5){
+            suma += calificaciones[i]
+            count++
+        }
+    }
+    let promedio = (suma / count) + 0.5 | 0
+    let estrellas = ''
+    for(let i = 0; i < (promedio > 5 ? 5 : promedio); i++){
+        estrellas += '*'
+    }
+    return estrellas
+}
+
+console.log(mostrarPromedioEstrellas([4, 6, null, 2, 4]))
