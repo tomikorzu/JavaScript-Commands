@@ -713,17 +713,6 @@ console.log(convertirPreciosAdolares(
     ))
 
 // Ejercicio 10
-// Para cada usuario, la función debe:
-// ○ Si el usuario tiene preferencias, recorrer ese array de preferencias y:
-// ■ Verificar si existe una promoción en el objeto promociones para esa
-// preferencia.
-// ■ Si existe una promoción, mostrar un mensaje en la consola que indique
-// que se ha enviado un correo a ese usuario con la promoción aplicada.
-// ■ Si no existe una promoción para la preferencia, mostrar un mensaje en la
-// consola que indique que se ha enviado un correo sin promoción
-// específica.
-
-
 console.log('Ejercicio 10')
 function enviarCorreo (usuarios, promociones){
     usuarios.forEach(function(usuario){
@@ -754,21 +743,4 @@ console.log(enviarCorreo(
     "Bufandas": "20% de descuento adicional"
 }
 ))
-// La función debe llevar un conteo de cuántos correos se enviaron en total y
-// cuántas veces se aplicó cada promoción.
-// Al final de la función, mostrar en la consola el total de correos enviados y un resumen de
-// las promociones aplicadas, indicando cuántas veces se aplicó cada una.
-// Salida Esperada:
-// Enviando correo a Juan Pérez (juan.perez@example.com) sobre Camisetas -
-// Promoción: 10% de descuento adicional
-// Enviando correo a Juan Pérez (juan.perez@example.com) sobre Gorras -
-// Promoción: 15% de descuento adicional
-// Enviando correo a María García (maria.garcia@example.com) sobre Bufandas -
-// Promoción: 20% de descuento adicional
-// Enviando correo genérico a Carlos López (carlos.lopez@example.com)
-// Total de correos enviados: 4
-// Promociones aplicadas:
-// - Camisetas: 1
-// - Gorras: 1
-// - Bufandas: 1
 
