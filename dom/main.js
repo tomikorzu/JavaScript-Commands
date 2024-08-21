@@ -109,6 +109,7 @@ color.addEventListener('change', function(event){
 
 
 let ejerciciosPart2 = document.querySelector('.ejercicios-2')
+ejerciciosPart2.style.display = 'none'
 // PART 2 addEventLister y preventDefault
 
 //Ejercicio 1: Manejar Evento para Mostrar un Mensaje: Selecciona un botón con el id "show-message" y agrega un evento click que muestre un mensaje de alerta diciendo "¡Hola, mundo!".
@@ -303,3 +304,9 @@ let elementSize = document.getElementById('resize-image')
 elementSize.addEventListener('click', function(){
     elementSize.classList.toggle('resize')
 })
+
+// PART 3
+
+let ejercicios3 = document.querySelector('.ejercicios-3')
+
+    
