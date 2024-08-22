@@ -12,38 +12,28 @@ themeButton.addEventListener("click", function () {
 let addButton = document.getElementById("add-task");
 let quitButton = document.getElementById("quit-task");
 
-function createList() {
+function createList(content) {
   let newList = document.createElement("ul");
   listContainer.append(newList);
-}
-// Ponga createList() aqui para crear una lista
-createList();
-createList();
-createList();
-let contador = 0;
-let wichList = document.querySelectorAll("ul");
-wichList.forEach(function (item) {
-  contador++;
-  item.id = `list${contador}`;
-});
-
-let lists = document.querySelectorAll(`ul`);
-function initialItems(listItems, list) {
-  let listId = list - 1;
-  listItems.forEach(function (item) {
-    let createItem = document.createElement("li");
-    createItem.innerText = item;
-    lists[listId].append(createItem);
-    return listId;
+  content.forEach(function (item) {
+    let listItem = document.createElement("li");
+    listItem.innerText = item;
+    newList.append(listItem);
   });
 }
-//Ponga los items iniciales que quiera poner en esta lista, y luego el numero de lista que quiera
-initialItems(["Buy eggs", "Do laundry", "Buy facturas for Seba"], 1);
-initialItems(["Sleep", "Eat", "Code", "Repeat"], 2);
-initialItems(["Sleep", "Eat", "Code", "Repeat"], 3);
-initialItems(["Sleep", "Eat", "Code", "Repeat"], 3);
-initialItems(["Sleep", "Eat", "Code", "Repeat"], 1);
-initialItems(["Sleep", "Eat", "Code", "Repeat"], 3);
+
+let initialLists = [
+  ["Buy eggs", "Do laundry", "Buy facturas for Seba"],
+  ["Sleep", "Eat", "Code", "Repeat"],
+  ["item 3", "item 3"],
+];
+
+initialLists.forEach(createList);
+
+let lists = document.querySelectorAll("ul");
+lists.forEach(function (list, index) {
+  list.id = `list${index + 1}`;
+});
 
 addButton.addEventListener("click", function () {
   container.style.filter = "blur(10px)";
@@ -84,25 +74,31 @@ addButton.addEventListener("click", function () {
   addButton.style.pointerEvents = "none";
 });
 
+let deleteIconsVisible = false;
 quitButton.addEventListener("click", function () {
-  quitButton.style.pointerEvents = "none";
+  deleteIconsVisible = true;
+
   let allItems = document.querySelectorAll("li");
+
   allItems.forEach(function (item) {
-    let deleteButton = document.createElement("button");
-    deleteButton.classList.add("icon-delete");
-    item.append(deleteButton);
-    let iconButton = document.createElement("i");
-    iconButton.classList.add("fa-solid");
-    iconButton.classList.add("fa-trash");
-    deleteButton.append(iconButton);
-    deleteButton.addEventListener("click", function () {
-      item.style.display = "none";
-      quitButton.style.pointerEvents = "auto";
-      let allDeleteButtons = document.querySelectorAll(".fa-trash");
-      allDeleteButtons.forEach(function (item) {
-        item.style.display = "none";
+    let deleteButton = item.querySelector(".icon-delete");
+
+    if (!deleteButton) {
+      deleteButton = document.createElement("button");
+      deleteButton.classList.add("icon-delete");
+
+      let iconButton = document.createElement("i");
+      iconButton.classList.add("fa-solid", "fa-trash");
+      deleteButton.append(iconButton);
+
+      deleteButton.addEventListener("click", function () {
+        item.remove();
       });
-    });
+
+      item.append(deleteButton);
+    }
+
+    deleteButton.style.display = deleteIconsVisible ? "inline" : "none";
   });
 });
 
@@ -112,6 +108,7 @@ function addForm() {
   body.append(formulario);
   return formulario;
 }
+
 function addTitleForm(formulario, title) {
   let titulo = document.createElement("h2");
   titulo.innerText = title;
