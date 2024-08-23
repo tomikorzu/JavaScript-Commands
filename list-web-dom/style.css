@@ -34,10 +34,7 @@ ul {
 h1 {
   font-weight: 700;
 }
-.light-theme {
-  background-color: #f4f4f4;
-  color: #333;
-}
+
 .color-theme-element {
   position: fixed;
   bottom: 15px;
@@ -68,6 +65,7 @@ h1 {
   border-radius: 10px;
   gap: 10px;
 }
+
 
 .buttons {
   display: flex;
@@ -150,4 +148,13 @@ h1 {
     border-radius: 10px;
     border: none;
     color: #f5f5f5;
+}
+
+.light-theme {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.global-container-light-theme{
+  background-color: #b2b2b2;
 }

@@ -2,11 +2,13 @@ let iconTheme = document.querySelector(".color-icon");
 let body = document.querySelector("body");
 let container = document.querySelector(".global-container");
 let listContainer = document.querySelector(".container-list");
-
+let lightThemeOn
 let themeButton = document.getElementById("color-theme");
 themeButton.addEventListener("click", function () {
   iconTheme.classList.toggle("fa-moon");
   body.classList.toggle("light-theme");
+  container.classList.toggle("global-container-light-theme");
+  return lightThemeOn = true;
 });
 
 let addButton = document.getElementById("add-task");
@@ -95,7 +97,7 @@ quitButton.addEventListener("click", function () {
         item.remove();
         let allDeleteBtn = document.querySelectorAll(".icon-delete");
         allDeleteBtn.forEach(function (delBtn) {
-          delBtn.remove()
+          delBtn.remove();
         });
       });
 
@@ -106,7 +108,7 @@ quitButton.addEventListener("click", function () {
   });
 });
 
-function addForm() {
+function addForm(lightThemeOn) {
   let formulario = document.createElement("form");
   formulario.classList.add("form");
   body.append(formulario);
