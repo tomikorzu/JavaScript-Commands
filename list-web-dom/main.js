@@ -93,6 +93,10 @@ quitButton.addEventListener("click", function () {
 
       deleteButton.addEventListener("click", function () {
         item.remove();
+        let allDeleteBtn = document.querySelectorAll(".icon-delete");
+        allDeleteBtn.forEach(function (delBtn) {
+          delBtn.remove()
+        });
       });
 
       item.append(deleteButton);
